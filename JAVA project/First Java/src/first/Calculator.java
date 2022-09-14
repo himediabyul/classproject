@@ -12,20 +12,22 @@ public class Calculator {
 		
 	}
 	// ① 숫자 두 개를 매개변수의 인자로 전달받아 더하기 메소드를 추가합시다.
-	public static long add(long num1, long num2) {
+	public static int add(int num1, int num2) {
 		
-		long result = num1 + num2;
+		int result = num1 + num2;
 		return result;
 		
 		// return num1+num2;
-		
 		
 		
 	}
 	
 	// ② 숫자 두 개를 매개변수의 인자로 전달받아 빼기 메소드를 추가합시다.
 	public static long substract(long num1, long num2) {
-		return num1-num2;
+		 return num1-num2;
+		
+		 //long result = num1 + num2;
+		 //return result;
 		
 	}
 	
