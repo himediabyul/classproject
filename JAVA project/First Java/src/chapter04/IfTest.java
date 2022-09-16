@@ -31,7 +31,7 @@ public class IfTest {
 		}else if(score>=70) { // 70 <= score < 80
 			System.out.println("C");
 		}
-			else {
+			else { // 70 > 0
 				System.out.println("FAIL");
 			}
 		
