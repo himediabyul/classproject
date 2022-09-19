@@ -12,6 +12,10 @@ public class MemberMain {
 		Member mb2 = new Member("이샛별", "010-****-****", "Trade", "졸업", "himedia.byul@gmail.com");
 		mb2.showInfo();
 		
+		System.out.println();
+		
+		Member mb3 = new Member("이예진", "010-****-****", "Trade", "졸업", "himedia.byul@gmail.com");
+		mb3.showInfo();
 	}
 
 }
