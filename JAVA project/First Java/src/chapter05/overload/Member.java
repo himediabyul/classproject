@@ -37,25 +37,26 @@ public class Member {
 	}
 	
 	void showInfo(){
+				
 		System.out.println("멤버소개");
 		System.out.println("이름 : " + name);
 		System.out.println("전화번호 : " + number );
 		System.out.println("전공 : " + major );
 		System.out.println("학년 : " + grade );
 		System.out.println("email : " + email );
+		
+		if(birthDay==0) {
+			return;
+					}
+		
 		System.out.println("생일 : " + birthDay );
 		System.out.println("주소 : " + address );
 		
-	}
-	void showInfo2() {
-		System.out.println("멤버소개");
-		System.out.println("이름 : " + name);
-		System.out.println("전화번호 : " + number );
-		System.out.println("전공 : " + major );
-		System.out.println("학년 : " + grade );
-		System.out.println("email : " + email );
+		
 		
 	}
+
+	
 
 		
 }
