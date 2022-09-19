@@ -60,7 +60,7 @@ public class Member {
 		System.out.println("email : " + email );
 		
 		
-		if(birthDay==0 || address==null) {
+		if(birthDay==0 && address==null) {
 			System.out.println("생일 : 정보없음");
 			System.out.println("주소 : 정보없음");
 			return; }
