@@ -46,7 +46,7 @@ public class Member {
 		this.major = major;
 		this.grade = grade;
 		this.email = email;
-		// this(name, number, major, grade, email, 0, null);
+		// this(name, number, major, grade, email);
 	}
 	
 	void showInfo(){
@@ -60,8 +60,10 @@ public class Member {
 		System.out.println("email : " + email );
 		
 		
-		if(birthDay==0) {
-		return; }
+		if(birthDay==0 || address==null) {
+			System.out.println("생일 : 정보없음");
+			System.out.println("주소 : 정보없음");
+			return; }
 		
 		System.out.println("생일 : " + birthDay );
 		System.out.println("주소 : " + address );
