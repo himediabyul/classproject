@@ -10,7 +10,7 @@ public class MemberMain {
 		System.out.println();
 		
 		Member mb2 = new Member("이샛별", "010-****-****", "Trade", "졸업", "himedia.byul@gmail.com");
-		mb2.showInfo2();
+		mb2.showInfo();
 		
 	}
 
