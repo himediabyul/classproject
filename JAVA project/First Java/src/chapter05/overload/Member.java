@@ -11,7 +11,9 @@ public class Member {
 	String address;
 	
 	
+	Member(){
 		
+	}
 
 
 	Member(String name, String number, String major, String grade, String email, int birthDay, String address){
@@ -25,6 +27,15 @@ public class Member {
 	this.address = address;
 	}
 	
+	Member(String name, String number, String major, String grade, String email){
+		
+		this.name=name;
+		this.number = number;
+		this.major = major;
+		this.grade = grade;
+		this.email = email;
+	}
+	
 	void showInfo(){
 		System.out.println("이름 : " + name);
 		System.out.println("전화번호 : " + number );
@@ -35,4 +46,6 @@ public class Member {
 		System.out.println("주소 : " + address );
 		
 	}
+
+		
 }
