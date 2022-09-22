@@ -10,7 +10,8 @@ public class ContactMain {
 			
 		
 		Scanner in = new Scanner(System.in);
-		
+	
+	//인스턴스의 출력메소드를 다시 실행합니다.	
 		while (true) {
 	System.out.println("입력 1, 종료 0");
 	String input = in.nextLine();
@@ -37,8 +38,8 @@ public class ContactMain {
 		System.out.println("그룹을 입력해주세요>>> ");
 		String group = in.nextLine();
 	
-	Contact m1 = new Contact(name, phoneNumber, email, address, birthDay, group);
-	m1.showContact();
+		Contact m1 = new Contact(name, phoneNumber, email, address, birthDay, group);
+		m1.showContact();
 	
 	
 			}
