@@ -14,7 +14,7 @@ public class MemberMain {
 		
 		System.out.println();
 		
-		Member mb3 = new Member("이예진", "010-****-****", "Trade", "졸업", "himedia.byul@gmail.com");
+		Member mb3 = new Member("이예진", "010-****-****", "Trade", "졸업", "himedia.byul@gmail.com",0,"남양주");
 		mb3.showInfo();
 	}
 
