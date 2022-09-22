@@ -1,20 +1,5 @@
 package ver01;
 
-
-/*
- 
-   실행 과정 
- main()메소드를 정의합니다.
- 연락처 데이터를 저장하는 인스턴스를 생성합니다.
- 변수 값을 반환하는 각각의 메소드를 호출해서 각 데이터를 출력문으로 출력합니다.
- 생성된 인스턴스의 정보 출력 메소드를 호출합니다.
- 인스턴스의 각 변수에 값을 바꾸는 메소드를 이용해서 데이터를 수정합니다.
- 인스턴스의 출력메소드를 다시 실행합니다.
- 
- */
-
-
-
 public class Contact {
 	
 	private String name;
@@ -24,6 +9,24 @@ public class Contact {
 	private String birthDay;
 	private String group;
 	
+	public Contact(){
+		
+	}
+	
+	//연락처 데이터를 저장하는 인스턴스를 생성합니다.
+	public Contact(String name, String phoneNumber, String email, String address, String birthDay, String group) {
+		
+		//this(name, phoneNumber, email, address, birthDay, group);
+		
+	
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.address = address;
+		this.birthDay = birthDay;
+		this.group = group;
+		
+	}
 
 	public String getName() {
 		return name;
@@ -75,40 +78,23 @@ public class Contact {
 
 
 		
-	Contact(){
-		
-	}
-
-			
-	//연락처 데이터를 저장하는 인스턴스를 생성합니다.
-	public Contact(String name, String phoneNumber, String email, String address, String birthDay, String group) {
-		
-		//this(name, phoneNumber, email, address, birthDay, group);
-		
-	
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-		this.address = address;
-		this.birthDay = birthDay;
-		this.group = group;
-		
-	}
-	
-
-	
-		
 	public void showContact() {
 		
 		
 		System.out.println("------------------");
-		System.out.println("이름 : " + name);
-		System.out.println("전화번호 : " + phoneNumber);
-		System.out.println("이메일 : " + email);
-		System.out.println("주소 : " + address);
-		System.out.println("생일 : " + birthDay);
-		System.out.println("그룹 : " + group);
+		System.out.println("이름 : " + this.name);
+		System.out.println("전화번호 : " + this.phoneNumber);
+		System.out.println("이메일 : " + this.email);
+		System.out.println("주소 : " + this.address);
+		System.out.println("생일 : " + this.birthDay);
+		System.out.println("그룹 : " + this.group);
 					
+	}
+
+
+	public String toString() {
+		return "Contact [name=" + name + ", phoneNumber=" + phoneNumber + ", email=" + email + ", address=" + address
+				+ ", birthDay=" + birthDay + ", group=" + group + "]";
 	}
 	
 	
