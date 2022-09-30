@@ -22,7 +22,7 @@ public class ExceptionTryCatchTest {
 		
 //		System.out.println(str.length());
 		
-	} catch(ArithmeticException e) {
+	} catch(ArithmeticException e) { //여기서 실행되면 무조건 마지막으로 감
 		System.out.println("0으로 나누는것은 불가합니다.");
 		e.printStackTrace();
 		System.out.println(e.getMessage());
