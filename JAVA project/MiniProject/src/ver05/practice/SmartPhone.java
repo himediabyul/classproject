@@ -365,7 +365,7 @@ public class SmartPhone {
 				break;
 			}
 		}else {
-			System.out.println("공백은 허용하지 않습니다.");
+			System.out.println("공백은 허용하지 않습니다. \n다시입력해주세요. >>");
 		}
 	}	
 		return phoneNumber;
