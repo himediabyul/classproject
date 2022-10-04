@@ -8,29 +8,6 @@ import ver03.practice.CustomerContact;
 
 public class SmartPhone {
 	
-	/*
-	 * 전화번호부
-		클래스 3개
-	1. 정보를 저장하는 용도 클래스: 인스턴스 마다 각각 다른 속성가진다.
-	2. 기능을 처리하는 클래스: 기능만 정의->하나의 인스턴스만 생성 사용
-	3. 프로그램을 정의하는 클래스
-	 */
-	
-	
-	
-	
-	// 기능 클래스 : 속성을 가지지 않고 메소드들로만 정의된 클래스
-	// 여러개의 인스턴스가 생성 될 필요가 없다.=> 싱글톤 패턴
-	// 1. private 생성자
-	// 2. 클래스 내부에서 인스턴스를 생성 static, private
-	// 3. 내부에서 생성한 참조값을 반환해주는 메소드 static public
-	
-	//요구사항
-	//이 클래스는 연락처 정보를 관리하는 클래스입니다.
-	//① Contact 클래스의 인스턴스 10개를 저장 할 수 있는 배열을 정의합시다.
-	// => 10개 정보를 저장할수 있다. - 배열 인스턴스를 생성 Contact[]
-	// 	  Contact 클래스 기반의 인스턴스를 최대 10개까지 만들어 배열의 참조값을 저장할 수 있다.
-	
 	private Contact[] contacts; //초기화. 외부에서 접근하지 못하는 변수, 메서드를 외부에서 보여지도록 하자
 	private int numofContact;  // 입력된 정보의 개수, 배열의 index 값으로 사용
 	
@@ -52,31 +29,23 @@ public class SmartPhone {
 		return sp;
 		
 	}
-		
-	//② 기능
-	//  배열에 인스턴스를 저장하고, ->정보저장
-	//				 수정하고, (이름으로 검색)
-	//				 삭제, (이름으로 검색)
-	//				 검색 후 결과 출력, (이름으로 검색)
-	//				 저장된 데이터의 리스트를 출력하는 메소드를 정의합니다.
 	
-	//이름 검색후 데이터 수정
-	void editContact() {
-		System.out.println("데이터 수정을 진행합니다.");
-		System.out.println("변경하고자 하는 이름을 입력해주세요 > ");
-		String name = sc.nextLine();
-		
-		
-		int searchIndex = -1;  //'현재 검색의 결과는 없다' 로 초기화한것...
-		
-		
-		//데이터 찾기
-		for(int i=0; i<numofContact ; i++) {
-			if(contacts[i].getName().equals(name)) {
-				searchIndex = i;
-				break;
+
+	//데이터 수정
+		void editContact() {
+			System.out.print("검색할 이름을 입력해주세요 > ");
+			String name = sc.nextLine();
+			int searchIndex = -1;
+			
+			for(int i=0; i<numofContact ; i++) {
+				if(contacts[i].getName().equals(name)) {
+					searchIndex = i;
+					break;
+				}
 			}
-		}
+			
+			System.out.println("데이터 수정을 진행합니다.");
+
 		if(searchIndex<0) {
 			System.out.println("찾으시는 데이터가 존재하지 않습니다.");
 			return;
@@ -168,6 +137,7 @@ public class SmartPhone {
 			}
 		}
 		
+	
 
 		System.out.println("정보가 변경되었습니다!");
 		System.out.println();
@@ -238,10 +208,6 @@ public class SmartPhone {
 		}else {
 			contact.showContact();
 		}
-		
-		
-	
-		
 	}
 	
 	//전체 입력 데이터의 출력
