@@ -1,6 +1,6 @@
 package ver01;
 
-public class Contact {
+	class Contact {  //public을 지워서 다른패키지의 같은 클래스에서 나타나지 않게 함
 	
 	private String name;
 	private String phoneNumber;
