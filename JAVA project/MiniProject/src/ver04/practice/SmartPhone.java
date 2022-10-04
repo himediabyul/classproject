@@ -2,9 +2,9 @@ package ver04.practice;
 
 import java.util.Scanner;
 
-import ver03.CompanyContact;
+import ver04.practice.CompanyContact;
 
-import ver03.CustomerContact;
+import ver04.practice.CustomerContact;
 
 public class SmartPhone {
 	
@@ -121,8 +121,8 @@ public class SmartPhone {
 			contact.setGroup(newGroup);
 		}
 		
-		if(contact instanceof CompanyContact1) {  // 중간 수정 추가
-			CompanyContact1 companyContact = (CompanyContact1) contact;
+		if(contact instanceof CompanyContact) {  // 중간 수정 추가
+			CompanyContact companyContact = (CompanyContact) contact;
 			
 			System.out.println("변경하고자 하는 회사 이름을 입력해주세요(현재값:" +companyContact.getCompany()+"\n"+"변경하지 않으려면 엔터를 치세요");
 			String newCompany = sc.nextLine();
@@ -143,8 +143,8 @@ public class SmartPhone {
 			if(newPosition != null && newPosition.trim().length()>0) {
 				companyContact.setPosition(newPosition);
 			}
-		} else if(contact instanceof CustomerContact1) {
-			CustomerContact1 customerContact = (CustomerContact1) contact;
+		} else if(contact instanceof CustomerContact) {
+			CustomerContact customerContact = (CustomerContact) contact;
 			
 			System.out.println("변경하고자 하는 거래처 이름을 입력해주세요(현재값:" +customerContact.getCompany()+"\n"+"변경하지 않으려면 엔터를 치세요");
 			String newCompany = sc.nextLine();
@@ -315,7 +315,7 @@ public class SmartPhone {
 			System.out.println("직급 > ");
 			String position = sc.nextLine();
 			
-			contact = new CompanyContact1(name, phoneNumber, email, address, birthDay, group, company, part, position);
+			contact = new CompanyContact(name, phoneNumber, email, address, birthDay, group, company, part, position);
 			
 		} else {
 				System.out.println("거래처 이름 > ");
@@ -325,7 +325,7 @@ public class SmartPhone {
 				System.out.println("직급 > ");
 				String position = sc.nextLine();
 				
-			contact = new CustomerContact1(name, phoneNumber, email, address, birthDay, group, company, product, position);
+			contact = new CustomerContact(name, phoneNumber, email, address, birthDay, group, company, product, position);
 			}
 		
 		
