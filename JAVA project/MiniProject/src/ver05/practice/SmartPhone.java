@@ -54,14 +54,11 @@ public class SmartPhone {
 	// 삭제, (이름으로 검색)
 	// 검색 후 결과 출력, (이름으로 검색)
 	// 저장된 데이터의 리스트를 출력하는 메소드를 정의합니다.
-
-	// 이름 검색후 데이터 수정
-	void editContact() {
-		System.out.println("데이터 수정을 진행합니다.");
-		System.out.println("변경하고자 하는 이름을 입력해주세요 > ");
+	private int getIndex() {
+		
 		String name = sc.nextLine();
 
-		int searchIndex = -1; // '현재 검색의 결과는 없다' 로 초기화한것...
+		int searchIndex = -1; 
 
 		// 데이터 찾기
 		for (int i = 0; i < numofContact; i++) {
@@ -70,6 +67,17 @@ public class SmartPhone {
 				break;
 			}
 		}
+		return searchIndex;
+	}
+	
+	
+	// 이름 검색후 데이터 수정
+	void editContact() {
+		System.out.println("데이터 수정을 진행합니다.");
+		System.out.println("변경하고자 하는 이름을 입력해주세요 > ");
+
+		int searchIndex = getIndex();
+		
 		if (searchIndex < 0) {
 			System.out.println("찾으시는 데이터가 존재하지 않습니다.");
 			return;
@@ -174,18 +182,9 @@ public class SmartPhone {
 
 		System.out.println("데이터 삭제가 진행됩니다.");
 		System.out.println("삭제하고자 하는 이름을 입력해주세요 > ");
-		String name = sc.nextLine();
-
-		// 삭제하고자 하는 index를 찾아야한다 -> 시프트
-		int searchIndex = -1; // '현재 검색의 결과는 없다' 로 초기화한것...
-
-		// 데이터 찾기
-		for (int i = 0; i < numofContact; i++) {
-			if (contacts[i].getName().equals(name)) {
-				searchIndex = i;
-				break;
-			}
-		}
+		
+		int searchIndex = getIndex();
+		
 		// 검색한 index 값으로 분기 : 시프트를 하거나 검색결과이름이 존재하지않는다.
 		if (searchIndex < 0) {
 			System.out.println("삭제하고자하는 이름의 데이터가 존재하지않습니다.");
@@ -210,24 +209,14 @@ public class SmartPhone {
 
 		System.out.println("검색을 시작합니다.");
 		System.out.print("검색할 이름을 입력하세요 > ");
-		name = sc.nextLine();
 
-		Contact contact = null;
-		// 배열에서 검색할 이름을 가지는 인스턴스의 데이터 출력 메소드를 실행
-		for (int i = 0; i < numofContact; i++) {
-			// 각 요소의 참조변수로 객체를 참조해서 이름을 비교
-			if (contacts[i].getName().equals(name)) {
-				contact = contacts[i];
-				break;
-
-			}
-		}
+		int searchIndex = getIndex();
 
 		// 결과출력
-		if (contact == null) {
+		if (searchIndex < 0) {
 			System.out.println("검색한 이름 " + name + " 의 정보가 없습니다.");
 		} else {
-			contact.showContact();
+			contacts[searchIndex].showContact();
 		}
 
 	}
