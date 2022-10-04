@@ -1,5 +1,7 @@
 package chapter09.exam;
 
+import java.util.Scanner;
+
 public class Person {
 
 	String name;
@@ -57,13 +59,9 @@ public class Person {
 		System.out.println("연산 실행 시간 : " + checkTime);
 		
 		break;
-	
-
 		
-//		4. 자신의 생일을 기준으로 오늘까지 몇 일을 살았는지 출력하는 프로그램을 만들어봅시다.
-}
-	
+		
 	}
 	
 }
-	
+}
