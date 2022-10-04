@@ -1,6 +1,6 @@
 package ver04.practice;
 
-public class CompanyContact1 extends Contact {
+public class CompanyContact extends Contact {
 	
 //	① CompanyContact 회사, 거래처의 정보를 저장하는 하위 클래스를 정의합니다.
 //	- 회사이름, 부서이름, 직급 변수 추가
@@ -10,7 +10,7 @@ public class CompanyContact1 extends Contact {
 	String part;
 	String position;
 	
-	public CompanyContact1(String name, String phoneNumber, String email, 
+	public CompanyContact(String name, String phoneNumber, String email, 
 						String address, String birthDay, String group, 
 						String company, String part, String position) {
 		super(name, phoneNumber, email, address, birthDay, group);
@@ -58,7 +58,7 @@ public class CompanyContact1 extends Contact {
 	}
 
 	public static void main(String[] args) {
-		Contact contact = new CompanyContact1("An","010-8888-9999","an@naver.com","서울", "2001-01", "가수", "아이브",
+		Contact contact = new CompanyContact("An","010-8888-9999","an@naver.com","서울", "2001-01", "가수", "아이브",
 				"메보", "언니");
 		
 		contact.showContact();
