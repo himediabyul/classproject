@@ -10,15 +10,15 @@ public class StudentMain {
 		//점수 초기화 
 		for(int i=0; i<students.length; i++) {
 			students[i] = new Student("학생" + i,
-					(int)(Math.random()*100),  //Math.random은 0~1 사이 난수라 *와 +로 최대,최솟값 설정
-					(int)(Math.random()*100),
-					(int)(Math.random()*100));
+					(int)(Math.random()*101),  //Math.random은 0~1 사이 난수라 *와 +로 최대,최솟값 설정
+					(int)(Math.random()*101),
+					(int)(Math.random()*101));
 			
 			
 		}
 		//총점수 초기화
-		int engTotalScore = 0;
 		int korTotalScore = 0;
+		int engTotalScore = 0;
 		int mathTotalScore = 0;
 		
 		
