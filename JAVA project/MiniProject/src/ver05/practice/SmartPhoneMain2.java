@@ -11,7 +11,7 @@ public class SmartPhoneMain2 {
 		
 		printMenu();
 		
-		int select = Integer.parseInt(sp.sc.nextLine());;
+		int select = Integer.parseInt(sp.sc.nextLine());
 		
 		switch(select) {
 		case 1:
