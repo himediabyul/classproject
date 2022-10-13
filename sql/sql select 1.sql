@@ -71,7 +71,7 @@ where MGR is null;
 --11. 커미션을 받을 수 있는 자격이 되는 사원의 이름, 급여, 커미션을 출력하되 급여 및 커미션을 기준으로 내림차순 정렬하여 표시하시오.
 select ename, sal, comm
 from emp
-where comm <> 0
+where comm is not null and comm <> 0
 order by sal+comm desc;
 
 
