@@ -14,7 +14,7 @@ on e.deptno = d.deptno;
 --36. 조인과 WildCARD를 사용하여 이름에 ‘A’가 포함된 모든 사원의 이름과 부서명을 출력하시오.
 select ename, dname
 from emp natural join dept
-where ename like '%A%';
+where ename like ('%A%');
 
     
 ​
