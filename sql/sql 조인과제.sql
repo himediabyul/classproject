@@ -14,9 +14,8 @@ on e.deptno = d.deptno;
 --36. 조인과 WildCARD를 사용하여 이름에 ‘A’가 포함된 모든 사원의 이름과 부서명을 출력하시오.
 select ename, dname
 from emp natural join dept
-where ename like 'A%'
-    or ename like '%A%'
-    or ename like '%A';
+where ename like '%A%';
+
     
 ​
 --37. JOIN을 이용하여 NEW YORK에 근무하는 모든 사원의 이름, 업무, 부서번호 및 부서명을 출력하시오.
