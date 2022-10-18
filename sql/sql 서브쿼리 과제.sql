@@ -41,12 +41,18 @@ select e1.ename
 from emp e1
 where not exists(select e2.mgr from emp e2 where e1.empno = e2.mgr);
 
+select * 
+from emp
+where empno not in(select distinct mgr from emp where mgr is not null);
 
 --50. 부하직원이 있는 사원의 이름을 표시하시오.
 select e1.ename
 from emp e1
 where e1.empno in (select mgr from emp e2 );
 
+select * 
+from emp
+where empno in(select distinct mgr from emp where mgr is not null);
 
 --51. BLAKE와 동일한 부서에 속한 사원의 이름과 입사일을 표시하는 질의를 작성하시오. ( 단 BLAKE는 제외 )
 select distinct e.ename, e.hiredate
