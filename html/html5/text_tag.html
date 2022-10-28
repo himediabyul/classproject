@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 태그</title>
+
+    <style>
+        h6{
+            font-size: 32px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <img src="미니1.jpg" alt="미니언즈1" width="400">
+    <br>
+    <img src="미니3.jpg" alt="미니언즈3"> <!-- alt -> 엑박시 알림-->
+    <br>
+    <img src="미니2.jpg" alt="미니언즈2" height="200">
+    <br>
+    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20220907_34%2F1662486586285ppuKd_JPEG%2F63622421112940937_1330899447.jpeg&type=sc960_832">
+    
+    
+    <hr>
+
+
+
+
+    
+    <table border="1">
+
+        <table border="1">
+            <tr>
+                <td colspan="2"> +++ </td>  <!-- 행병합 -->
+                
+            </tr>
+            <tr>
+                <td rowspan="3"> +++ </td> <!-- 열병합 -->
+                <td> +++ </td>
+            </tr>
+            <tr>
+                
+                <td> +++ </td>
+            </tr>
+            <tr>
+                
+                <td> +++ </td>
+            </tr>
+            <tr>
+                <td rowspan="4"> +++ </td>
+                <td> +++ </td>
+            </tr>
+            <tr>
+                
+                <td> +++ </td>
+            </tr>
+            <tr>
+                
+                <td> +++ </td>
+            </tr>
+            <tr>
+                
+                <td> +++ </td>
+            </tr>
+         </table>   
+    
+    
+        <hr>
+
+
+         <!--
+        테이블생성 -> 행 생성 -> 열 생성
+        -->
+
+        <table border="1">
+        <h3>자유게시판</h3>
+
+        <thead> <!-- 라벨로 지정 -->
+        <tr> <!-- 항목들의 행 -->
+            <th>번호</th> <!-- ↓항목들, th-> 글자굵게, 가운데정렬 -->
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회</th>
+            <th>좋아요</th>
+
+        </tr>
+         </thead>
+
+        <tr>
+            <td>1</td>
+            <td>맛집1</td>
+            <td>byul</td>
+            <td>2022.10.28. 12:30</td>
+            <td>1500</td>
+            <td>1000</td>
+
+        </tr>
+    </table>
+
+    <hr>
+
+
+    <table border="1">
+        <tr>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+            <td>일</td>
+        </tr>
+        <tr>
+            <td>공부</td>
+            <td>공부</td>
+            <td>공부</td>
+            <td>공부</td>
+            <td>공부</td>
+            <td>공부</td>
+            <td>공부</td>
+        </tr>
+
+    </table>
+
+
+
+    <hr>
+
+    <ol>
+        <li>바나나</li>
+        <li>토마토</li>
+        <li>사과</li>
+    </ol>
+
+
+    <ul>
+        <li>3번</li>
+        <li>1번</li>
+        <li>2번</li>
+    </ul>
+
+
+
+
+    <a href="#m1">h태그 보기</a>
+    <br>
+    <a href="#m2">특수문자 표현</a>
+    <br>
+    <a href="#m3">p태그 보기</a>
+
+    <hr>
+
+    <a href="test1.html">기사보기</a> <!-- 경로로 이동시켜줌 -->
+    <br>
+    <a href="https://www.naver.com">네이버</a>
+
+
+
+    <hr>
+
+
+
+
+    <p id="m3">  <!-- 문단 -->
+        정부가 주택담보대출비율(LTV) 완화 등 부동산 규제 완화를 통한 경기침체 연착륙 방안을 내놓았다.
+    </p>
+    <p>
+        각국 중앙은행의 금리인상으로 주택 거래가 급감하고 지방 미분양 증가, 강원 레고랜드 프로젝트파이낸싱(PF) 부실화 등으로 자금 경색이 진행된 데 따른 조치로 풀이된다.
+
+윤석열 대통령은 27일 비상경제민생회의에서 '부동산 규제 정상화 방안'을 확정했다. 전문가들은 이번 방안이 실수요자의 자금난과 세 부담을 낮추는 데는 긍정적이나 경기침체 우려를 해소하기는 쉽지 않을 것이라고 봤다.
+    </p>
+
+    <br> <!--개행을 해주는 태그 -->
+    <br>
+    행이 넘어왔어!
+
+    <p id="m2">
+    &amp;  <!-- &  -->
+    &lt;   <!-- '<'  -->
+    &gt;   <!-- '>'  --> 
+
+     abc &nbsp;&nbsp;&nbsp;&nbsp;   def <!-- 띄어쓰기   -->
+
+    </p>
+
+    <hr>
+
+    <h1 id="m1"> heading - 1 </h1>
+    <h2> heading - 1 </h2>
+    <h3> heading - 1 </h3>
+    <h4> heading - 1 </h4>
+    <h5> heading - 1 </h5>
+    <h6> heading - 1 </h6>
+
+    
+</body>
+</html>
