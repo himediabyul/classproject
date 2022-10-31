@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tag2</title>
+
+    <style>
+        .input{
+            color:red
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <!-- method = Get / Post -->
+
+    <form action="#" method="post"> <!-- action 뒤에 링크가 붙으면 링크로 이동-->
+
+        <!-- username = 사용자가 입력한 문자열 -->
+        <input type="text" 
+               name="username"
+               id="username"
+               value="cool"
+               readonly   
+               disabled
+               class="input"   
+               > <!-- class속성은 css로 스타일을 부여하기위한 식별자 -->
+
+        <input type="password" name="pw" id="pw" class="input" required> <!-- required는 필수입력 -->
+        <br>
+        <input type="checkbox"> <!-- 멀티스레드, 선택을 할수도 안할수도 있음 (ex.개인정보 활용동의) -->
+        <br>
+        <input type="checkbox" name="lang" value="java" checked> java <!-- checked는 선택된채로 표시됨 -->
+        <input type="checkbox" name="lang" value="Mysql"> Mysql
+        <input type="checkbox" name="lang" value="HTML5"> HTML5
+        <hr>
+        <input type="radio" name="like" value="music"> 음악
+        <input type="radio" name="like" value="book"> 독서
+        <input type="radio" name="like" value="movie" checked> 영화  <!-- 토글버튼 나옴 -->
+        <hr>
+        <input type="date" name="date">
+        <input type="time" name="time">
+        <input type="datetime-local">
+        <input type="month">
+        <input type="week">
+        <hr>
+        <input type="file">
+
+ 
+        <hr>
+
+        나이 <input type="number"> <!-- 숫자형식으로 제한되어 문자입력불가 -->
+        <hr>
+        이메일 <input type="email">
+        <hr>
+        전화번호 <input type="tel">
+        <hr>
+        url <input type="url">
+
+        <hr>
+        <input type="image" src="미니1.jpg" width="100">
+        
+        <hr>
+        <input type="range" name="age" min="1" max="100"> 
+
+        <hr>
+        <select name="year">
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+        </select>
+
+        <hr>
+        <!-- cols는 폭지정, rows는 열지정 -->
+        <textarea cols="80" rows="20"> 내용을 입력해주세요.
+            
+
+        </textarea>
+
+
+        <hr>
+        <input type="hidden" name="userid" value="cool"> 화면에 보여지지 않는 값
+        <hr>
+        <input type="submit" value="가입">
+        <input type="reset" value="다시쓰기"> <!-- 초기화버튼, 최초의 화면으로 초기화-->
+        <input type="button" value="버튼"> <!-- 단순 버튼역할로 전송기능이 없음 -->
+        <button>전송하기버튼</button> <!-- 전송기능있음! submit! -->
+       
+
+
+    </form>
+</body>
+</html>
