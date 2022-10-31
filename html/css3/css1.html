@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css1</title>
+
+    <style>
+        /*
+    선택자 { 속성이름 : 속성 값; 속성이름: 값; ... }
+    */
+
+        /* *{}: 전체선택 */
+        /* *{
+        color : blue;
+
+    } */
+
+        /* 태그 선택자 */
+        h1 {
+            background-color: orange;
+            color: azure;
+        }
+
+        p {
+            background-color: beige;
+            color: plum;
+            font-weight: bold;
+        }
+
+        /* 중복 사용 */
+        body,
+        h1,
+        p {
+            font-size: 24px;
+            margin: 0;
+            /*여백조정*/
+            padding: 0;
+            /*간격조정*/
+            /* font-style: italic ; */
+        }
+
+        div {
+
+            margin: 10px;
+            border: 1px solid #000000;
+
+        }
+
+        /*아이디 선택자*/
+        #header {
+            background-color: aliceblue;
+            padding: 10px;
+        }
+
+        #aside {
+            background-color: darkgray;
+            color: white;
+            width: 100px;
+            height: 100px;
+        }
+
+        #content {
+            background-color: darkcyan;
+            color: #ffffff;
+        }
+
+        #footer {
+            background-color: lightpink;
+            color: black;
+            font-size: 16px;
+            text-align: center;
+            /* 폰트정렬 */
+        }
+
+        /* 클래스 속성 선택 */
+        .font_bold {
+            font-weight: bold;
+        }
+
+        .font_italic {
+            font-style: italic;
+        }
+
+        .font_size32 {
+            font-size: 32px;
+        }
+
+        /* 속성 선택자 */
+        input[type] {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        input[type=text] {
+            background-color: aliceblue;
+        }
+
+        input[type=password] {
+            background-color: olivedrab;
+        }
+
+        img[src] {
+            margin: 50px;
+        }
+
+        /* 확장자 지정 속성부여 */
+        img[src$=png] {
+            border: 5px solid red;
+        }
+
+        img[src$=jpg] {
+            border: 5px solid blue;
+        }
+
+        /* 범위 지정해서 선택하는 자손/후손 선택자 */
+        /* 자손선택자 */
+        #div1>h1 {
+            color: red;
+        }
+
+        /* 후손선택자 */
+        #div1 h1 {
+            background-color: aquamarine;
+        }
+
+        #div1>h1,
+        h2 {}
+
+        /* 이렇게 선택시 h2는 전체의 h2 */
+        #div1>h1,
+        #div1>h2 {}
+
+        /* 동일한 위치(뎁스) 에서 태그를 선택 : 동위선택자 */
+        /* 기준 -> 선택자 */
+        #div2>h1+h2 {
+            color: cadetblue;
+        }
+
+        #div2>h1~h2 {
+            background-color: black;
+        }
+
+        /* 반응선택자 */
+        h3 {
+            border: 3px solid #000;
+        }
+
+        h3:hover {
+
+            background-color: azure;
+            color: coral;
+            padding: 20px;
+            font-size: 32px;
+        }
+
+        /* 커서를 올리면 반응 */
+
+        h3:active {
+            font-size: 16px;
+            color: red;
+        }
+
+        /* 클릭시 반응하는것 */
+
+        /* 상태선택자 */
+
+        #uname:focus {
+            outline: 0;
+        }
+
+        #uname:focus {
+            border: 10px solid pink;
+        }
+
+        #chk:checked {
+            width: 50px;
+            height: 50px;
+        }
+
+        #uname:disabled {
+            background-color: gray;
+        }
+
+        #menuCheck+div {
+            width: 300px;
+            background-color: beige;
+            /* height: 0px; */
+            display: none;
+
+            overflow: hidden;
+        }
+
+        #menuCheck:checked+div {
+            width: 300px;
+            background-color: beige;
+            /* height: 100px; */
+            display: block;
+
+        }
+
+        #menuCheck {
+            display: none;
+        }
+
+        #menuLabel:hover {
+
+            background-color: aliceblue;
+            cursor: pointer;
+            /* pointer : 손가락 모양으로 */
+        }
+
+        #menuList {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        #menuList>li {
+            float: left;
+            padding: 10px 60px;
+            /*상하 좌우*/
+            /* border: 1px solid gray; */
+            background-color: #eeeeee;
+        }
+
+        #menuList>li:first-child {
+            /*리스트의 시작*/
+            /* border-radius: 모서리 둥글게
+                 순서: 좌측상단 우측상단 우측하단 좌측하단 */
+            border-radius: 10px 0 0 10px;
+        }
+
+        #menuList>li:last-child {
+            /*리스트의 마지막*/
+            border-radius: 0 10px 10px 0;
+        }
+
+        #menuList>li:nth-child(2n) {
+            /*짝수번째*/
+            background-color: pink;
+        }
+
+        #menuList>li:nth-child(2n+1) {
+            /*홀수번째*/
+            background-color: #eeeeee;
+        }
+
+        p::selection {
+            /* 본문 드래그시 표현색상 */
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        a {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a:hover {
+            /* 커서 올렸을때 */
+            color: violet;
+            font-weight: bold;
+            text-decoration: underline;
+            /* 텍스트꾸미기 */
+        }
+
+        a:visited {
+            /* 이미 눌렀을때 */
+            color: coral;
+        }
+
+        a:active {
+            /* 누르고있을때 */
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="menuList">
+        <li><a href="#">home</a></li>
+        <li><a href="http://www.naver.com">네이버</a></li>
+        <li><a href="https://www.github.com">github</a></li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+
+    <ul id="menuList2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+
+
+    <hr>
+
+
+    <label id="menuLabel" for="menuCheck">check <input type="checkbox" id="menuCheck"></label>
+    <div>
+        <h4>게임 타이틀</h4>
+        <p>요즘 제일 핫한 게임은 탕탕특공대</p>
+    </div>
+
+
+    <hr>
+
+
+    <input type="text" id="uname">
+    <br>
+    <input type="checkbox" id="chk">
+
+    <hr>
+
+
+    <h3>action</h3>
+
+
+    <hr>
+
+    <div id="div2">
+        <h1>Header - 1</h1>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+    </div>
+
+
+
+    <div id="div1">
+        <h1>div - heading</h1>
+        <h2>div - heading2</h2>
+        <ul>
+            <li>
+                <h1>li - heading</h1>
+            </li>
+            <li>li - 2</li>
+            <li>li - 3</li>
+        </ul>
+    </div>
+
+
+    <hr>
+
+
+    <img src="../html5/미니1.jpg" height="100"> <!-- 상위폴더로 이동시 ../경로선택 -->
+    <img src="../html5/미니2.jpg" height="100">
+
+    <hr>
+
+    <input type="text"><input type="password">
+
+
+
+    <hr>
+
+    <div id="header" class="font_bold font_italic font_size32">header</div> <!-- 클래스 속성 추가-->
+    <div id="aside" class="font_size32">aside</div>
+    <div id="content" class="font_italic">content</div>
+    <div id="footer" class="font_bold font_italic font_size32">footer</div>
+
+
+    <h1> 이찬원, 이태원 참사에 “노래 부적절”…일부 관객 항의 </h1>
+    <p>
+
+        가수 이찬원이 이태원 참사를 애도하는 취지에서 한 행사에 참석해 노래하지 않겠다는 뜻을 밝혔다가 봉변을 당했다. 주최 측과 사전에 노래를 부르지 않겠다고 조율을 끝낸 상태였지만, 현장에서 일부 관객의
+        항의가 이어진 것이다.
+
+        이찬원은 지난 30일 전남 화순에서 열린 제1회 테마파크 소풍 가을 대축제에 참석했다. 하지만 무대에 오른 그는 “여러분을 만나뵈면서 좋은 음악을 선사하고 좋은 공연을 약속드렸지만, 신나는 노래를
+        즐기기에는 시기가 시기인지라 적절하지 않다고 판단된다”고 했다.
+
+        전날 서울 이태원에서 발생한 참사로 국가애도기간이 선포된 이유에서다. 이찬원은 이어 “최소한의 약속을 지키고자 인사드리고 양해를 구하는 것이 맞지 않나 싶어서 무대에 올라왔다. 송구스럽고 많은 이해
+        부탁드린다. 죄송하다”고 연신 사과했다.
+
+        앞서 이찬원 측은 팬카페를 통해서도 “국가애도기간이라 이찬원의 무대는 진행되지 않는다. 행사에 참석하는 것은 맞지만 노래는 진행되지 않는다. 행사장에서 함성 및 박수는 자제해달라”고 부탁했다.
+
+        대부분의 관객은 이찬원의 결정을 존중했다. 다만 일부 관객은 이찬원의 간곡한 호소에도 노래하지 않는 그에게 야유를 보냈다. 또 한 남성은 퇴장하는 이찬원을 쫓아가 항의한 것으로 전해졌다. 소속사 측은
+        “관객의 항의가 있었다”면서 “큰 문제는 없었다”고 설명했다.
+    </p>
+</body>
+
+</html>
