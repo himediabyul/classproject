@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS2</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    // console.log('JS')
+
+    // alert('하이')  // 알림, 경고메세지
+
+    // console.log(confirm('삭제하시겠습니까?'))   // 사용자에게 확인하는 메세지 boolean
+
+
+    console.log(typeof Boolean(1), Boolean(1))  // 0 또는 공백이 아닌값은 true
+    console.log(typeof Boolean(0), Boolean(0))  // false
+    console.log(typeof Boolean(''), Boolean(''))  // false
+    console.log(typeof Boolean('aa'), Boolean('aa'))  // true
+    console.log(typeof Boolean([]), Boolean([]))  // true
+    console.log(typeof Boolean({}), Boolean({}))  // true
+    console.log(typeof Boolean(null), Boolean(null))  // false
+
+    let bool2 = !1
+    console.log('bool2',bool2, typeof bool2)  //false 1(true)의 부정
+
+    let bool3 = NaN;
+    console.log('bool3',bool3, typeof bool3, Boolean(bool3)) // NaN은 number타입 
+
+    // '' 0 null NaN 
+
+
+
+
+
+
+
+
+    ////////////////////////////////////////////////////
+    let str1 = String(100) 
+    console.log('str1', str1, typeof str1)
+    let bool1 = String(false)
+    console.log('bool1', bool1, typeof bool1)
+
+    let str2 = 100 + '';
+    let str3 = true + '';
+    console.log('str2', typeof str2, 'str3', typeof str3)
+
+
+
+
+    const str = 1000 //= prompt('금액을 입력하세요')  // 입력창에서 받아와
+    console.log('str',str, typeof str)  // 콘솔에 출력
+
+    // Number(문자열)
+    let num = Number(str)
+    console.log('num', num, typeof num)
+
+    // 숫자로 변환
+    let num1 = parseInt(str)
+    console.log('num1', num1, typeof num1)
+    // 정수로 변환
+    let num2 = parseFloat(str)
+    console.log('num2', num2, typeof num2)
+
+</script>
