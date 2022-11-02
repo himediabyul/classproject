@@ -13,19 +13,24 @@
 <body>
     <!-- facebook -->
     <div>
-        <h1 class="title">facebook</h1>
+        <img src="../facebook/facebook.svg" class="title">
     </div>
     <div>
         <h2 class="subtitle">Facebook에서 전세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠보세요.</h2>
     </div>
     <!-- 로그인박스 -->
-    <!-- <div>
-        <input type="text" value="이메일 또는 전화번호" id="userid">
-        <input type="password" value="비밀번호" id="password">
+    <div>
+        <form id="box">
+        <input type="text" placeholder="이메일 또는 전화번호" id="user" required>
+        <input type="password" placeholder="비밀번호" id="user"required>
         <input type="submit" value="로그인" id="login">
-    </div> -->
+        <a href="https://ko-kr.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
+                        id="lost">비밀번호를 잊으셨나요?</a>
+        <input type="button" value="새 계정 만들기" id="new">
+    </form>
+    </div>
 
-    <fieldset id="box">
+   <!--  <fieldset id="box">
         <table>
             <tr>
                 <td><input type="text" id="user" required></td>
@@ -46,7 +51,7 @@
             </tr>
 
         </table>
-    </fieldset>
+    </fieldset> -->
     <div>
         <p>유명인, 브랜드 또는 비즈니스를 위한 페이지 만들기</p>
     </div>
