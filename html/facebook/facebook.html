@@ -1,62 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook - 로그인 또는 가입</title>
     <link rel="stylesheet" href="css/default.css">
-
 </head>
-
 <body>
-    <!-- facebook -->
-    <div>
-        <img src="../facebook/facebook.svg" class="title">
-    </div>
-    <div>
-        <h2 class="subtitle">Facebook에서 전세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠보세요.</h2>
-    </div>
-    <!-- 로그인박스 -->
-    <div>
-        <form id="box">
-        <input type="text" placeholder="이메일 또는 전화번호" id="user" required>
-        <input type="password" placeholder="비밀번호" id="user"required>
-        <input type="submit" value="로그인" id="login">
-        <a href="https://ko-kr.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
-                        id="lost">비밀번호를 잊으셨나요?</a>
-        <input type="button" value="새 계정 만들기" id="new">
-    </form>
+
+    <div id="whole">
+        <div id="hidden">
+            <div id="img"><img src="../facebook/facebook.svg" >
+                <h2>Facebook에서 전세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠보세요.</h2>
+            </div>
+            <div id="etc">
+                <form id="loginform">
+                    <input type="text" placeholder="이메일 또는 전화번호" id="user" required>
+                    <input type="password" placeholder="비밀번호" id="user"required>
+                    <input type="submit" value="로그인" id="login">
+                    <a href="https://ko-kr.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
+                                    id="lost">비밀번호를 잊으셨나요?</a>
+                    <input type="button" value="새 계정 만들기" id="new">
+                </form>
+                <p id="p">유명인, 브랜드 또는 비즈니스를 위한 페이지 만들기.</p>
+            </div>
+            
+        </div>
     </div>
 
-   <!--  <fieldset id="box">
-        <table>
-            <tr>
-                <td><input type="text" id="user" required></td>
-            </tr>
-            <tr>
-                <td><input type="password" id="user" required></td>
-            </tr>
-            <tr>
-                <td> <input type="submit" value="로그인" id="login"></td>
-            </tr>
-            <tr>
-                <td><a href="https://ko-kr.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0"
-                        id="lost">비밀번호를 잊으셨나요?</a></td>
-            </tr>
-
-            <tr>
-                <td> <input type="button" value="새 계정 만들기" id="new"></td>
-            </tr>
-
-        </table>
-    </fieldset> -->
-    <div>
-        <p>유명인, 브랜드 또는 비즈니스를 위한 페이지 만들기</p>
-    </div>
     <div class="footer">
-        <div>
+        <div id="lang">
             <ul>
                 <li>한국어</li>
                 <li>English (US)</li>
@@ -73,7 +47,7 @@
 
         <div class="line"></div>
 
-        <div>
+        <div id="lang">
             <ul>
                 <li>가입하기</li>
                 <li>로그인</li>
@@ -106,6 +80,6 @@
                 <li>연락처 업로드 및 비사용자설정</li>
             </ul>
         </div>
+    
 </body>
-
 </html>
