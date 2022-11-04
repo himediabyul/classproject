@@ -1,0 +1,39 @@
+
+header{
+    width: 400px;
+    height: 100px;
+    text-decoration: underline rgba(192, 192, 192, 0.375);
+    
+}
+#userID{
+    width: 200px;
+    height: 40px;
+    border: 3px solid rgba(220, 220, 220, 0.564);
+    border-radius: 5px;
+}
+#pw{
+    width: 200px;
+    height: 40px;
+    border: 3px solid rgba(220, 220, 220, 0.564);
+    border-radius: 5px;
+}
+#repw{
+    width: 200px;
+    height: 40px;
+    border: 3px solid rgba(220, 220, 220, 0.564);
+    border-radius: 5px;
+}
+#userName{
+    width: 200px;
+    height: 40px;
+    border: 3px solid rgba(220, 220, 220, 0.564);
+    border-radius: 5px;
+}
+submit{
+    width: 50px;
+    height: auto;
+    background-color: gainsboro;
+}
+#listArea{
+    border: 3px solid rgba(220, 220, 220, 0.564);
+}
