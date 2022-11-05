@@ -29,11 +29,14 @@ header{
     border: 3px solid rgba(220, 220, 220, 0.564);
     border-radius: 5px;
 }
-submit{
-    width: 50px;
-    height: auto;
-    background-color: gainsboro;
-}
+
 #listArea{
     border: 3px solid rgba(220, 220, 220, 0.564);
+    padding: 20px;
+    
+}
+
+#list{
+    background-color: bisque;
+  
 }

@@ -6,20 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원관리 프로그램</title>
-    <!-- <link rel="stylesheet" href="default.css"> -->
+    <link rel="stylesheet" href="default.css">
      <script src="manager.js"></script>
-<style>
-    table{
-        border-spacing: 0px;
-    }
-    th{
-        border: 1px solid;
-        padding: 5px;
-    }
-    tr>button{
-        height: 33px;
-    }
-</style>
 </head>
 
 <body>
@@ -49,7 +37,7 @@
                     </td>
                     <td>
                         <label for="repw">비밀번호 확인</label>
-                        <input type="password" id="ckpw" placeholder="비밀번호를 입력해주세요.">
+                        <input type="password" id="repw" placeholder="비밀번호를 입력해주세요.">
                         <div class="msg"></div>
                     </td>
                     <td>
@@ -112,7 +100,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="button" value="수정">
+                        <input type="button" value="수정완료" id="editBtn">
                     </td>
                 </tr>
             </table>

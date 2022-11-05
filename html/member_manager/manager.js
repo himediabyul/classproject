@@ -1,261 +1,120 @@
- /*     document.addEventListener('DOMContentLoaded', () => {
+   
+   
+   document.addEventListener('DOMContentLoaded', () => {
 
     // 문서객체 생성
-    const loginForm = document.querySelector('#regForm');
     const userID = document.querySelector('#userID');
     const pw = document.querySelector('#pw');
+    const repw = document.querySelector('#repw')
     const userName = document.querySelector('#userName');
+    const addBtn = document.querySelector('#addBtn')
     const list = document.querySelector('#list')
 
-    loginForm.addEventListener('submit', (event) => {
-
-        event.preventDefault();
-
-        const userID = document.querySelector('#userID');
-        const pw = document.querySelector('#pw');
-        const userName = document.querySelector('#userName');
        
-        // console.log(userID.value.search(/[a-zA-Z0-9]/))
-        // console.log(/[a-zA-Z0-9]/.test(userID.value))
-
-        if(!/[a-zA-Z0-9]/.test(userID.value)) {
-
-            alert('아이디는 대문자 소문자 숫자만을 조합하는 문자열 입력만 가능합니다.')
-        }
-
-    })
-
-    userID.addEventListener('focusin', (event) => {
-
-        console.log('focus in')
-
-    })
-
-    userID.addEventListener('focusout', (event) => {
-
-        console.log('focus out')
-        const val = event.target.value
-
-        if(!/[a-zA-Z0-9]/.test(val)) {
-            alert('영문 소문자 영문 대문자 숫자만 입력가능')
-        }
-    })
-
-    pw.addEventListener('focusin', (event) => {
-
-        console.log('focus in')
-
-    })
-
-    pw.addEventListener('focusout', (event) => {
-
-        console.log('focus out')
-        const val = event.target.value
-
-        if(!/[a-zA-Z0-9]/.test(val)) {
-            alert('영문 소문자 영문 대문자 숫자만 입력가능')
-        }
-    })
-    repw.addEventListener('focusin', (event) => {
-
-        console.log('focus in')
-
-    })
-
-    repw.addEventListener('focusout', (event) => {
-
-        console.log('focus out')
-        const val = event.target.value
-
-        if(!/[a-zA-Z0-9]/.test(val)) {
-            alert('영문 소문자 영문 대문자 숫자만 입력가능')
-        }
-    })
-    userName.addEventListener('focusin', (event) => {
-
-        console.log('focus in')
-
-    })
-
-    userName.addEventListener('focusout', (event) => {
-
-        console.log('focus out')
-        const val = event.target.value
-
-        if(!/[a-zA-Z가-힣0-9]/.test(val)) {
-            alert('영문 소문자 영문 대문자 숫자만 입력가능')
-        }
-    })
-
+    let cnt=0
 
     const addlist = () => {
 
-        const newMem = document.createElement(`<tr>
-            <th>순번(index)</th>
-            <th>아이디</th>
-            <th>비밀번호</th>
-            <th>이름</th>
-            <th>관리</th>
-        </tr>`)
+        // console.log(userID.value)
 
-        const userId = document.createElement('th')
-        const pw = document.createElement('th')
-        const userName = document.createElement('th')
-        const btn = doceument.createElement('button')
+        if(!(/[a-zA-Z0-9]/).test(userID.value)){
+            alert('아이디는 영대소문자 와 숫자만 입력가능합니다.')
+            return
+        }
 
-        newMem.appendChild(userId)
-        newMem.appendChild(pw)
-        newMem.appendChild(userName)
-        newMem.appendChild(btn)
+        if(!(/[a-zA-Z0-9]/).test(pw.value)){
+            alert('패스워드는 영대소문자 와 숫자만 입력가능합니다.')
+            return
+        }
+        
+        if(repw.value !== pw.value) {
+            alert('비밀번호를 확인해주세요')
+            return
+        }
+
+        if(!(/[a-zA-Z가-힣]/).test(userName.value)){
+            alert('이름은 영대소문자 와 한글만 입력가능합니다.')
+            return
+        }
+        // 리스트 객체생성
+        const newMem = document.createElement('tr')
+        const idx = document.createElement('th')
+        const uid = document.createElement('th')
+        const pass = document.createElement('th')
+        const uname = document.createElement('th')
+        const ebtn = document.createElement('button')
+        const dbtn = document.createElement('button')
+
+        list.appendChild(newMem)
+
+        newMem.appendChild(idx)
+        newMem.appendChild(uid)
+        newMem.appendChild(pass)
+        newMem.appendChild(uname)
+        newMem.appendChild(ebtn)
+        newMem.appendChild(dbtn)
 
         const index = cnt++
-        newMem.setAttribute('data-key', index)
 
-        userId.textContent = userId.value
-        pw.textContent = pw.value
-        userName.textContent = userName.value
-        btn.textContent = '삭제'
+        newMem.setAttribute('idx', index)
 
-        userID.addEventListener('focusin', (event) => {
+        idx.textContent = index
+        uid.textContent = userID.value
+        pass.textContent = pw.value
+        uname.textContent = userName.value
+        ebtn.textContent = '수정'
+        dbtn.textContent = '삭제'
 
-            console.log('focus in')
-    
-        })
-    
-        userId.addEventListener('focusout',(event) => {
-        
-            const val = event.target.value
-    
-            if(!/[a-zA-Z0-9]/.test(val)){
-                alert('아이디는 영대소문자 와 숫자만 입력가능합니다.')
-            }
-        })
 
-        pw.addEventListener('focusin', (event) => {
-
-            console.log('focus in')
-    
-        })
-
-        pw.addEventListener('focusout',(event) => {
-        
-            const val = event.target.value
-    
-            if(!/[a-zA-Z0-9]/.test(val)){
+       
+        //수정
+        ebtn.addEventListener('click', (event) => {
+            const editBtn = document.querySelector('#editBtn')
+            editBtn.addEventListener('click',(event) =>{
+            const editPw = document.querySelector('#editPw');
+            const editRePw = document.querySelector('#editRePw')
+            const editName = document.querySelector('#editName');
+               
+            if(!(/[a-zA-Z0-9]/).test(editPw.value)) {
                 alert('패스워드는 영대소문자 와 숫자만 입력가능합니다.')
+                return
             }
-        })
-
-        userName.addEventListener('focusin', (event) => {
-
-            console.log('focus in')
-    
-        })
-        userName.addEventListener('focusout',(event) => {
-        
-            const val = event.target.value
-    
-            if(!/[a-zA-Z가-힣0-9]/.test(val)){
-                alert('아이디는 영대소문자 와 한글, 숫자만 입력가능합니다.')
+            if(editRePw.value !== editPw.value) {
+                alert('비밀번호를 확인해주세요')
+                return
             }
+            if(!(/[a-zA-Z가-힣]/).test(editName.value)){
+                alert('이름은 영대소문자 와 한글만 입력가능합니다.')
+                return
+            } 
+            else{
+                pass.textContent = editPw.value
+                uname.textContent = editName.value
+            }
+
         })
 
-        btn.addEventListener('click', (event) =>{
-            remove(index)
+    })
+
+        dbtn.addEventListener('click', (event) =>{
+            removelist(index)
         })
-        
-        list.appendChild(newMem)
-        
+
+        userID.value = ''
+        pw.value = ''
+        repw.value = ''
+        userName.value = ''
+
     }
 
-    const remove = function(index){
-        const delElement = document.querySelector(`tr[data-key="${index}"]`)
+    // 삭제
+    const removelist = (index) => {
+        const delElement = document.querySelector(`tr[idx="${index}"]`)
         list.removeChild(delElement)
     }  
 
-    submit.addEventListener(addlist)
-   
+    addBtn.addEventListener('click', addlist)
 
 })
- */
-document.addEventListener('DOMContentLoaded', () => {
-    const user_id = document.querySelector('#userID')
-    const user_pw = document.querySelector('#pw')
-    const user_ckpw = document.querySelector('#ckpw')
-    const user_name = document.querySelector('#userName')
-    const addBtn = document.querySelector('#addBtn')
-    const todolist = document.querySelector('#list')
+ 
 
-    let cnt = 0;
-
-    const addTodo = () => {
-
-        if (!(/[a-zA-Z0-9]/.test(user_id.value))) {
-            alert('아이디는 대문자 소문자 숫자만을 조합하는 문자열 입력만 가능합니다.')
-            return
-        }
-        console.log(user_id.value);
-        if (user_id.value.trim() === '') {
-            alert('아이디를 입력해 주세요')
-            return
-        }
-        if (user_pw.value.trim() === '') {
-            alert('비밀번호를 입력해 주세요')
-            return
-
-        } if (user_ckpw.value.trim() === '') {
-            alert('비밀번호확인 입력해 주세요')
-            return
-        }
-        if (user_ckpw.value !== user_pw.value) {
-            alert('비밀번호와 같게 적어주세요.')
-            return
-        }
-        console.log(user_name.value);
-        if (user_name.value.trim() === '') {
-            alert('이름을 입력해 주세요')
-            return
-        }
-
-        const newTr = document.createElement('tr')
-        const newTh_idx = document.createElement('th')
-        const newTh_id = document.createElement('th')
-        const newTh_pw = document.createElement('th')
-        const newTh_name = document.createElement('th')
-        const btn = document.createElement('button')
-
-        todolist.appendChild(newTr)
-
-        newTr.appendChild(newTh_idx)
-        newTr.appendChild(newTh_id)
-        newTr.appendChild(newTh_pw)
-        newTr.appendChild(newTh_name)
-        newTr.appendChild(btn)
-
-        const key = cnt++;
-        newTr.setAttribute('user_idx', key)
-      
-
-        newTh_idx.textContent = key
-        newTh_id.textContent = user_id.value
-        newTh_pw.textContent = user_pw.value
-        newTh_name.textContent = user_name.value
-        btn.textContent = '정보 삭제'
-
-        btn.addEventListener('click', (event) => {
-            removeTodo(key)
-        })
-
-
-        user_id.value = ''
-        user_pw.value = ''
-        user_ckpw.value = ''
-        user_name.value = ''
-    }
-    const removeTodo = (key) => {
-        const delElement = document.querySelector(`tr[user_idx="${key}"]`)
-        todolist.removeChild(delElement)
-    }
-    addBtn.addEventListener('click', addTodo)
-  
-})
