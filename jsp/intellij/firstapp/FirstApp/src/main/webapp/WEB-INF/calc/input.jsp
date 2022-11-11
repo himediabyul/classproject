@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>계산기</title>
+    <title>${title}</title>
 </head>
 <body>
-<form method="post" action="makeResult">
+<form method="post">
+<h1>${title}</h1>
+
 
   <input type="number" name="num1" id="num1">
   <input type="number" name="num2" id="num2">
