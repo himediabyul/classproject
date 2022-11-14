@@ -2,6 +2,8 @@ package com.firstcoding.todo.controller;
 
 import com.firstcoding.todo.domain.Todo;
 import com.firstcoding.todo.service.ModifyService;
+import com.firstcoding.todo.service.ReadService;
+import com.firstcoding.todo.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
@@ -17,9 +19,17 @@ public class TodoModifyController extends HttpServlet {
 
         log.info("Todo modify get ...");
 
-        Todo todo = null;
+        ReadService service = new ReadService();
 
         String tno = request.getParameter("tno");
+
+        Todo todo = null;
+
+        try {
+            todo = service.read(Integer.parseInt(tno));
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+        }
 
         request.setAttribute("todo", todo);
 
@@ -62,7 +72,7 @@ public class TodoModifyController extends HttpServlet {
         }
 
         if(result>0) {
-            response.sendRedirect("/todo/list");
+           response.sendRedirect("/todo/list");
         }
 /*        System.out.println("modify post ...");
 
