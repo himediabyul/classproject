@@ -1,13 +1,31 @@
 package com.firstcoding.todo.service;
 
-import com.firstcoding.todo.domain.TodoDTO;
+import com.firstcoding.todo.Util.ConnectionUtil;
+import com.firstcoding.todo.dao.TodoDao;
+import com.firstcoding.todo.domain.Todo;
+import lombok.Cleanup;
+import lombok.extern.log4j.Log4j2;
 
-import java.util.ArrayList;
+import java.sql.Connection;
 import java.util.List;
-
+@Log4j2
 public class TodoService {
 
-    public List<TodoDTO> getTodoList() {
+
+    private TodoDao dao = new TodoDao();
+
+    public List<Todo> getList() throws Exception {
+
+        log.info("TodoService getList() ...");
+
+        @Cleanup Connection conn = ConnectionUtil.getInstance().getConnection();
+
+        List<Todo> list = dao.todoList(conn);
+
+        log.info(list);
+        return list;
+    }
+    /*public List<TodoDTO> getTodoList() {
 
         List<TodoDTO> list = new ArrayList<>();
 
@@ -17,6 +35,7 @@ public class TodoService {
         }
         return list;
 
-    }
+    }*/
+
 
 }
