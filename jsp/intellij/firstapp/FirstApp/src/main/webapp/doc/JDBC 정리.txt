@@ -1,0 +1,33 @@
+1. gradle에 필요한 라이브러리 등록
+  -DB: mysql connector
+  -connection pool: hikariCP
+  -Lombok: Lombok Project
+  -Log4j2: core / api / slf4j
+
+2. MVC 패턴으로 클래스 구성
+  -Controller : Servlet 클래스로 사용자 요청 URI 등록, View 지정, 결과데이터 공유
+  -Service : 목적에 맞는 결과 데이터 생성, 필요에 따라 DAO 클래스 사용
+  -DAO: 필요한 데이터베이스 처리 코드들, CRUD 
+  -DTO/VO: Beans 형식의 데이터 저장을 목적으로 하는 클래스, 데이터 전달 공유 목적
+
+MVC - MODEL(SERVICE+DAO) VIEW(JSP) CONTROLLER(TOMCAT)
+DTO - BEANS 
+
+-------------------------------------------------------------------------------------------------
+
+todo
+
+1. 데이터베이스 생성
+   테이블 생성
+   SQL 작성: select(list), insert(register), select(read), update, delete
+
+2. 프로젝트 생성, 설정
+  gradle 설정(jdbc 관련)
+
+3. MVC 형태의 클래스 구성
+  0 DTO
+  1 리스트 출력 페이지 : controller, service, dao
+  2 등록 페이지           : controller, service, dao
+  3 상세보기 페이지     : controller, service, dao
+  4 수정 페이지           : controller, service, dao
+  5 삭제 기능              : controller, service, dao
