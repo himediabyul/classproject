@@ -1,0 +1,19 @@
+Todo List
+Register jsp와 controller(서블릿) 로 등록 -> list로 보내기
+List controller는 dao로 연결
+
+
+
+SQL table 만들기
+tno - AutoIncrease로 자동증가 설정
+todo, dueDate - string으로 
+finished - boolean 타입
+
+Util 설정
+ConnectionProvider 와 ConnectionUtil 로 데이터베이스 연결
+resource 폴더에 log4j2.xml 파일 붙여넣기
+
+Test
+ConnectionTest로 sql 연결 확인
+
+

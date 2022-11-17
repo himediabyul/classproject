@@ -1,4 +1,6 @@
 package com.firstcoding.todo.controller;
+/*
+package com.firstcoding.todo.controller;
 
 import com.firstcoding.todo.domain.Todo;
 import com.firstcoding.todo.service.TodoService;
@@ -35,7 +37,8 @@ public class TodoListController extends HttpServlet {
 
 
 
-      /*  System.out.println("todo list ...");
+      */
+/*  System.out.println("todo list ...");
 
         // 출력 결과
 //        String title = "Todo List" ;
@@ -43,7 +46,32 @@ public class TodoListController extends HttpServlet {
         request.setAttribute("todolist", new TodoService().getTodoList());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/list.jsp");
-        dispatcher.forward(request, response);*/
+        dispatcher.forward(request, response);*//*
+
+    }
+
+}
+*/
+
+import com.firstcoding.todo.domain.Todo;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+
+@Controller
+public class TodoListController{
+
+    @RequestMapping("/todo/list")
+    public String getList(HttpServletRequest request, HttpServletResponse response){
+
+        List<Todo> list = null;
+
+        request.setAttribute("list", list);
+
+        return "todo/list";
     }
 
 }

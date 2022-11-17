@@ -28,18 +28,16 @@ public class TodoDao {
 
     public int register(Connection conn, Todo todo) throws SQLException {
 
-        int result = 0;
-        PreparedStatement pstmt = null;
-
         String sql = "insert into todo values (?, ?, ?, ?)";
 
-        pstmt = conn.prepareStatement(sql);
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
         pstmt.setInt(1, todo.getTno());
         pstmt.setString(2, todo.getTodo());
         pstmt.setString(3, todo.getDueDate());
         pstmt.setBoolean(4, todo.isFinished());
 
-        result = pstmt.executeUpdate();
+        int result = pstmt.executeUpdate();
 
         return result;
     }
@@ -66,18 +64,16 @@ public class TodoDao {
 
     public int modify(Connection conn, Todo todo) throws SQLException{
 
-        int result = 0;
-        PreparedStatement pstmt = null;
-
         String sql = "update todo set todo=?, dueDate=?, finished=? where tno=?";
 
-        pstmt = conn.prepareStatement(sql);
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
         pstmt.setString(1, todo.getTodo());
         pstmt.setString(2, todo.getDueDate());
         pstmt.setBoolean(3, todo.isFinished());
         pstmt.setInt(4,todo.getTno());
 
-        result = pstmt.executeUpdate();
+        int result = pstmt.executeUpdate();
 
         return result;
 
@@ -85,15 +81,12 @@ public class TodoDao {
 
     public int delete(Connection conn, int tno) throws SQLException{
 
-        int result = 0;
-        PreparedStatement pstmt = null;
-
         String sql = "delete from todo where tno=?";
 
-        pstmt = conn.prepareStatement(sql);
+        PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setInt(1, tno);
 
-        result = pstmt.executeUpdate();
+        int result = pstmt.executeUpdate();
 
         return result;
     }

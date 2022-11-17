@@ -1,5 +1,15 @@
 package com.firstcoding.todo.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+
 import com.firstcoding.todo.domain.Todo;
 import com.firstcoding.todo.service.ReadService;
 import lombok.extern.log4j.Log4j2;
@@ -37,7 +47,8 @@ public class TodoReadController extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
-        /*System.out.println("read get...");
+        */
+/*System.out.println("read get...");
 
         // 사용자 요청 tno 받기
         String tno = request.getParameter("tno");
@@ -49,10 +60,29 @@ public class TodoReadController extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/read.jsp");
         dispatcher.forward(request, response);
-*/
+*//*
+
 
 
 
     }
 
+}
+*/
+@Controller
+@RequestMapping("/todo/read")
+public class TodoReadController {
+    @GetMapping
+    public String getRead(HttpServletRequest request, HttpServletResponse response){
+
+        String tno = request.getParameter("tno");
+
+        return "todo/read";
+    }
+
+    @PostMapping
+    public String read(HttpServletRequest request, HttpServletResponse response){
+
+        return "todo/list";
+    }
 }

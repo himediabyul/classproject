@@ -1,9 +1,9 @@
 package com.firstcoding.todo.controller;
+/*
 
 import com.firstcoding.todo.domain.Todo;
 import com.firstcoding.todo.service.ModifyService;
 import com.firstcoding.todo.service.ReadService;
-import com.firstcoding.todo.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
@@ -37,6 +37,7 @@ public class TodoModifyController extends HttpServlet {
         dispatcher.forward(request, response);
 
 
+*/
 /*        System.out.println("modify get... ");
 
         // 사용자가 입력했던 데이터를 기본 값으로 가지는 입력 폼 화면
@@ -48,7 +49,8 @@ public class TodoModifyController extends HttpServlet {
         request.setAttribute("todo", todo);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/modify.jsp");
-        dispatcher.forward(request,response);*/
+        dispatcher.forward(request,response);*//*
+
 
     }
 
@@ -74,6 +76,7 @@ public class TodoModifyController extends HttpServlet {
         if(result>0) {
            response.sendRedirect("/todo/list");
         }
+*/
 /*        System.out.println("modify post ...");
 
         // 사용자 입력한 데이터 모두 받기
@@ -94,6 +97,38 @@ public class TodoModifyController extends HttpServlet {
         System.out.println(dto);
 
         // Service로 전송 -> 응답 int
-        response.sendRedirect("/todo/list");*/
+        response.sendRedirect("/todo/list");*//*
+
     }
+}
+*/
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@Controller
+@RequestMapping("/todo/modify")
+public class TodoModifyController {
+    @GetMapping
+    public String getModify(HttpServletRequest request, HttpServletResponse response){
+
+        String tno = request.getParameter("tno");
+
+        return "todo/modify";
+
+    }
+    @PostMapping
+    public String modify(HttpServletRequest request, HttpServletResponse response){
+
+
+        return "todo/list";
+
+    }
+
 }

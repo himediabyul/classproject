@@ -1,3 +1,4 @@
+/*
 package com.firstcoding.todo.controller;
 
 import com.firstcoding.todo.domain.Todo;
@@ -21,11 +22,13 @@ public class TodoRegiterController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/register.jsp");
         dispatcher.forward(request, response);
 
-    /*    // 사용자가 입력할 수 있는 폼 화면
+    */
+/*    // 사용자가 입력할 수 있는 폼 화면
         System.out.println("register get ...");
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/register.jsp");
-        dispatcher.forward(request, response);*/
+        dispatcher.forward(request, response);*//*
+
     }
 
     @SneakyThrows
@@ -50,5 +53,32 @@ public class TodoRegiterController extends HttpServlet {
         if(result>0) {
             response.sendRedirect("/todo/list");
         }
+    }
+}
+*/
+
+package com.firstcoding.todo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@Controller
+@RequestMapping("/todo/register")
+public class TodoRegisterController  {
+
+    @GetMapping
+    public String getRegister(HttpServletRequest request, HttpServletResponse response){
+
+        return "/todo/register";
+    }
+    @PostMapping
+    public String list(HttpServletRequest request, HttpServletResponse response){
+
+        return "/todo/list";
     }
 }
