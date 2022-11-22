@@ -1,4 +1,4 @@
-import com.firstcoding.todo.Util.ConnectionUtil;
+import com.firstcoding.todo.Util.ConnectionProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ public class ConnectionTest {
     }
     @Test
     public void testPoolConnections() throws Exception{
-        Connection conn = ConnectionUtil.getInstance().getConnection();
+        Connection conn = ConnectionProvider.getInstance().getConnection();
 
         System.out.println(conn);
 

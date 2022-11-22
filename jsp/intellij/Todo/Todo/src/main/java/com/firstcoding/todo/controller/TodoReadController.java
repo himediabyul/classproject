@@ -1,9 +1,13 @@
 package com.firstcoding.todo.controller;
 
+import com.firstcoding.todo.service.ReadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,29 +64,17 @@ public class TodoReadController extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/read.jsp");
         dispatcher.forward(request, response);
-*//*
-
-
-
-
-    }
-
-}
 */
 @Controller
-@RequestMapping("/todo/read")
 public class TodoReadController {
-    @GetMapping
-    public String getRead(HttpServletRequest request, HttpServletResponse response){
 
-        String tno = request.getParameter("tno");
+    @Autowired
+    ReadService service = new ReadService();
+    @GetMapping("/todo/read")
+    public void readTodo(Model model, @RequestParam("tno") int tno) throws Exception {
 
-        return "todo/read";
+        model.addAttribute("todo", service.readtd(tno));
+
     }
 
-    @PostMapping
-    public String read(HttpServletRequest request, HttpServletResponse response){
-
-        return "todo/list";
-    }
 }

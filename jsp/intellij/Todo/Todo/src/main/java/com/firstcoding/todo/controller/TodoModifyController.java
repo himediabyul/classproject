@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "TodoModifyController", value = "/todo/modify")
 @Log4j2
 public class TodoModifyController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,7 +27,7 @@ public class TodoModifyController extends HttpServlet {
         Todo todo = null;
 
         try {
-            todo = service.read(Integer.parseInt(tno));
+            todo = service.readtd(Integer.parseInt(tno));
         } catch (Exception e) {
 //            throw new RuntimeException(e);
         }
@@ -36,9 +37,10 @@ public class TodoModifyController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/modify.jsp");
         dispatcher.forward(request, response);
 
-
 */
-/*        System.out.println("modify get... ");
+/*
+
+        System.out.println("modify get... ");
 
         // 사용자가 입력했던 데이터를 기본 값으로 가지는 입력 폼 화면
         String tno = request.getParameter("tno");
@@ -49,7 +51,9 @@ public class TodoModifyController extends HttpServlet {
         request.setAttribute("todo", todo);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/modify.jsp");
-        dispatcher.forward(request,response);*//*
+        dispatcher.forward(request,response);
+*//*
+
 
 
     }
@@ -76,10 +80,10 @@ public class TodoModifyController extends HttpServlet {
         if(result>0) {
            response.sendRedirect("/todo/list");
         }
-*/
-/*        System.out.println("modify post ...");
+        System.out.println("modify post ...");
 
-        // 사용자 입력한 데이터 모두 받기
+   */
+/*     // 사용자 입력한 데이터 모두 받기
         request.setCharacterEncoding("utf-8");
         String tno = request.getParameter("tno");
         String todo = request.getParameter("todo");
@@ -99,36 +103,51 @@ public class TodoModifyController extends HttpServlet {
         // Service로 전송 -> 응답 int
         response.sendRedirect("/todo/list");*//*
 
+
     }
 }
+
 */
 
-
+import com.firstcoding.todo.domain.Todo;
+import com.firstcoding.todo.service.ModifyService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-@Controller
 @RequestMapping("/todo/modify")
-public class TodoModifyController {
-    @GetMapping
-    public String getModify(HttpServletRequest request, HttpServletResponse response){
+@Controller
+public class TodoModifyController{
 
-        String tno = request.getParameter("tno");
+//    @Autowired
+    private final ModifyService modifyService;
+
+    public TodoModifyController(ModifyService modifyService) {
+        this.modifyService = modifyService;
+    }
+
+    @GetMapping
+    public String getModify(Model model, @RequestParam("tno") int tno) {
+
+        model.addAttribute("todo", modifyService.modifyTodo(tno));
 
         return "todo/modify";
-
     }
+
     @PostMapping
-    public String modify(HttpServletRequest request, HttpServletResponse response){
+    public String modifytd(@RequestParam("tno") int tno,
+                           @RequestParam("todo")String todo,
+                           @RequestParam("dueDate")String dueDate,
+                           @RequestParam(value = "finished", required = false)String finished) throws Exception {
 
+        Todo td = new Todo(tno, todo, dueDate, finished == null ? false : true);
 
-        return "todo/list";
+        service.modifyTodo(td);
 
+        return "redirect:/todo/list";
     }
 
-}
+    }

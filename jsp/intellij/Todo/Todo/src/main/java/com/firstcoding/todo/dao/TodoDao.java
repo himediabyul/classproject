@@ -1,95 +1,27 @@
 package com.firstcoding.todo.dao;
 
 import com.firstcoding.todo.domain.Todo;
-import lombok.Cleanup;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class TodoDao {
+public interface TodoDao {
 
-    public List<Todo> todoList(Connection conn) throws SQLException {
+    // 전체 리스트 출력
+    List<Todo> todoList(Connection conn) throws SQLException;
 
-        String sql = "Select * from todo";
-        @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery();
-        List<Todo> list = new ArrayList<>();
+    // 하나의 항목 출력
+    Todo read(Connection conn, int tno) throws SQLException;
 
-            while (rs.next()){
-                list.add(new Todo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4)));
-            }
+    // 할일 등록
+    int register(Connection conn, Todo dto) throws SQLException;
 
-        return list;
-    }
+    // 할일 수정
+    int modify(Connection conn, Todo dto) throws SQLException;
 
-    public int register(Connection conn, Todo todo) throws SQLException {
-
-        String sql = "insert into todo values (?, ?, ?, ?)";
-
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-
-        pstmt.setInt(1, todo.getTno());
-        pstmt.setString(2, todo.getTodo());
-        pstmt.setString(3, todo.getDueDate());
-        pstmt.setBoolean(4, todo.isFinished());
-
-        int result = pstmt.executeUpdate();
-
-        return result;
-    }
-
-    public Todo read(Connection conn, int tno) throws SQLException {
-
-        Todo todo = null;
-
-        String sql = "Select * from todo where tno=?";
-        @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, tno);
-
-        ResultSet rs = pstmt.executeQuery();
-
-        if(rs.next()){
-            todo = rowToTodo(rs);
-        }
-
-        return todo;
-    }
-    private Todo rowToTodo(ResultSet rs) throws SQLException {
-        return new Todo(rs.getInt("tno"), rs.getString("todo"), rs.getString("dueDate"), rs.getBoolean("finished"));
-    }
-
-    public int modify(Connection conn, Todo todo) throws SQLException{
-
-        String sql = "update todo set todo=?, dueDate=?, finished=? where tno=?";
-
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-
-        pstmt.setString(1, todo.getTodo());
-        pstmt.setString(2, todo.getDueDate());
-        pstmt.setBoolean(3, todo.isFinished());
-        pstmt.setInt(4,todo.getTno());
-
-        int result = pstmt.executeUpdate();
-
-        return result;
-
-    }
-
-    public int delete(Connection conn, int tno) throws SQLException{
-
-        String sql = "delete from todo where tno=?";
-
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, tno);
-
-        int result = pstmt.executeUpdate();
-
-        return result;
-    }
+    // 할일 삭제
+    int delete(Connection conn, int dto) throws SQLException;
 
 
 }

@@ -53,23 +53,22 @@ public class TodoListController extends HttpServlet {
 }
 */
 
-import com.firstcoding.todo.domain.Todo;
+import com.firstcoding.todo.service.TodoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @Controller
 public class TodoListController{
 
+    @Autowired
+    private TodoService service = new TodoService();
+
     @RequestMapping("/todo/list")
-    public String getList(HttpServletRequest request, HttpServletResponse response){
+    public String list(Model model) throws Exception {
 
-        List<Todo> list = null;
-
-        request.setAttribute("list", list);
+        model.addAttribute("todoList", service.getList());
 
         return "todo/list";
     }
