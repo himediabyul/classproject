@@ -111,6 +111,7 @@ public class TodoModifyController extends HttpServlet {
 
 import com.firstcoding.todo.domain.Todo;
 import com.firstcoding.todo.service.ModifyService;
+import com.firstcoding.todo.service.ReadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -130,9 +131,9 @@ public class TodoModifyController{
     }
 
     @GetMapping
-    public String getModify(Model model, @RequestParam("tno") int tno) {
+    public String getModify(Model model, @RequestParam("tno") int tno) throws Exception {
 
-        model.addAttribute("todo", modifyService.modifyTodo(tno));
+        model.addAttribute("todo", ReadService.readtd(tno));
 
         return "todo/modify";
     }
@@ -145,7 +146,7 @@ public class TodoModifyController{
 
         Todo td = new Todo(tno, todo, dueDate, finished == null ? false : true);
 
-        service.modifyTodo(td);
+        modifyService.modifyTodo(td);
 
         return "redirect:/todo/list";
     }

@@ -12,9 +12,9 @@ import java.sql.Connection;
 public class ReadService {
 
     @Autowired
-    private TodoDaoImpl dao = new TodoDaoImpl();
+    private static TodoDaoImpl dao = new TodoDaoImpl();
 
-    public Todo readtd(int tno) throws Exception{
+    public static Todo readtd(int tno) throws Exception{
 
         Todo todo = null;
         Connection conn = ConnectionProvider.getInstance().getConnection();
