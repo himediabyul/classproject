@@ -28,12 +28,16 @@ public class TodoModifyController {
         return"todo/modify";
     }
     @PostMapping
-    public String modify(@RequestParam("tno") int tno,
+    public String modify(/*@RequestParam("tno") int tno,
                          @RequestParam("todo")String todo,
                          @RequestParam("dueDate")String dueDate,
-                         @RequestParam(value = "finished", required = false)String finished){
+                         @RequestParam(value = "finished", required = false)String finished*/
+                        TodoDTO todoDTO
+                        ){
 
-        TodoDTO todoDTO = new TodoDTO(tno, todo, LocalDate.parse(dueDate), finished == null ? false : true);
+//        TodoDTO todoDTO = new TodoDTO(tno, todo, LocalDate.parse(dueDate), finished == null ? false : true);
+
+        log.info(todoDTO);
 
         log.info("TodoDTO..." + todoDTO);
 
