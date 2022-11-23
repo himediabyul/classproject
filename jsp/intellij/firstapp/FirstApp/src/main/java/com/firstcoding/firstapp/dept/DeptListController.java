@@ -16,7 +16,7 @@ public class DeptListController extends HttpServlet {
 
         log.info("Dept List Get...");
 
-        DeptService service = new DeptService();
+        DeptService service = new DeptService();  // 클라이언트 요청 -> 톰캣(서블릿->서비스->dao)
 
 //        System.out.println("Dept List Get...");
 
@@ -27,8 +27,10 @@ public class DeptListController extends HttpServlet {
         } catch (Exception e) {
 //            throw new RuntimeException(e);
         }
+        // view 페이지로 결과 데이터 전달 (공유)
         request.setAttribute("list", list);
 
+        // view 페이지 지정
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/dept/list.jsp");
         dispatcher.forward(request, response);
 
