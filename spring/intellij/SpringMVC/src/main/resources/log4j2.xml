@@ -6,8 +6,19 @@
         </Console>
     </Appenders>
     <Loggers>
+
+        <logger name="org.springframework" level="debug" additibity="false">
+            <AppenderRef ref="Console"/>
+        </logger>
+
+        <logger name="org.firstcoding.mvc.springmvc" level="info" additibity="false">
+            <AppenderRef ref="Console"/>
+        </logger>
+
+
         <Root level="info">
             <AppenderRef ref="Console"/>
+
         </Root>
     </Loggers>
 </Configuration>
