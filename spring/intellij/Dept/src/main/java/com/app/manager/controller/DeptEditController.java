@@ -40,4 +40,6 @@ public class DeptEditController {
 
         return "redirect:/dept/list";
     }
+
+
 }

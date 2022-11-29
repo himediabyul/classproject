@@ -14,8 +14,8 @@ public class DeptEditService {
     private DeptMapper deptMapper;
 
     public int editDept(DeptDTO deptDTO){
-
         return deptMapper.updateDept(deptDTO);
     }
+
 
 }
