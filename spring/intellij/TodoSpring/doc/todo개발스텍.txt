@@ -1,0 +1,7 @@
+Spring + MyBatis + JSP
+- 의존설정(gradle)
+- web.xml
+- Spring 설정 (root-context, servelet-context)
+- 데이터베이스 프로그래밍 : Mybatis(Mapper,XML)
+
++Bootstrap
