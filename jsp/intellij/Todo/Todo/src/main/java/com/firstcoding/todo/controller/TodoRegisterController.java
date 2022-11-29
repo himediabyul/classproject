@@ -64,10 +64,12 @@ import com.firstcoding.todo.service.RegisterService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 
 @Log4j2
@@ -76,7 +78,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TodoRegisterController  {
 
     @Autowired
-    private RegisterService service = new RegisterService();
+    private RegisterService registerService;
 
     @GetMapping
     public String getRegister(){
@@ -84,19 +86,13 @@ public class TodoRegisterController  {
         return "/todo/register";
     }
     @PostMapping
-    public String register(@RequestParam("todo") String todo, @RequestParam("dueDate") String dueDate) throws Exception {
+    public String register(@Valid Todo todo, BindingResult bindingResult) throws Exception {
 
-        log.info(todo);
-        log.info(dueDate);
+       if(bindingResult.hasErrors()){
+        return "redirect:/todo/register";
+       }
 
-        Todo td = Todo.builder()
-                .todo(todo)
-                .dueDate(dueDate)
-                .build();
-
-        log.info("Todo" + td);
-
-        service.register(td);
+        registerService.register(todo);
 
         return "redirect:/todo/list";
     }

@@ -4,9 +4,9 @@ import com.firstcoding.todo.Util.ConnectionProvider;
 import com.firstcoding.todo.dao.MemberDao;
 import com.firstcoding.todo.domain.Member;
 import com.firstcoding.todo.domain.MemberRegister;
+import com.firstcoding.todo.mapper.MemberMapper;
 import lombok.Cleanup;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +16,11 @@ import java.sql.Connection;
 @Service
 public class MemberRegisterService {
 
-    @Autowired
-    private MemberDao memberDao;
+/*    @Autowired
+    private MemberDao memberDao;*/
+
+    @Autowired(required = false)
+    private MemberMapper memberMapper;
 
     public int memberReg(MemberRegister memberRegister, HttpServletRequest request) throws Exception {
 
@@ -41,8 +44,11 @@ public class MemberRegisterService {
             member.setUphoto(newFileName);
         }
 
-        @Cleanup Connection conn = ConnectionProvider.getInstance().getConnection();
+//        @Cleanup Connection conn = ConnectionProvider.getInstance().getConnection();
 
-        return memberDao.insertMember(conn, member);
+//        return memberRegister.insertMember(conn, member);
+
+        return memberMapper.insertMember(member);
+
     }
 }

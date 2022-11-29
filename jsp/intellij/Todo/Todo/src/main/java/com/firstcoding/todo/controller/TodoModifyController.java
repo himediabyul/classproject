@@ -112,6 +112,7 @@ public class TodoModifyController extends HttpServlet {
 import com.firstcoding.todo.domain.Todo;
 import com.firstcoding.todo.service.ModifyService;
 import com.firstcoding.todo.service.ReadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -123,20 +124,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class TodoModifyController{
 
-//    @Autowired
-    private final ModifyService modifyService;
-
-    public TodoModifyController(ModifyService modifyService) {
-        this.modifyService = modifyService;
-    }
+    @Autowired
+    private ReadService readService;
 
     @GetMapping
-    public String getModify(Model model, @RequestParam("tno") int tno) throws Exception {
+    public String getModify(Model model, @RequestParam("tno") int tno) {
 
-        model.addAttribute("todo", ReadService.readtd(tno));
+        model.addAttribute("todo", readService.readtd(tno));
 
         return "todo/modify";
     }
+    @Autowired
+    private ModifyService modifyService;
 
     @PostMapping
     public String modifytd(@RequestParam("tno") int tno,

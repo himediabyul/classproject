@@ -3,6 +3,7 @@ package com.firstcoding.todo.service;
 import com.firstcoding.todo.Util.ConnectionProvider;
 import com.firstcoding.todo.dao.TodoDaoImpl;
 import com.firstcoding.todo.domain.Todo;
+import com.firstcoding.todo.mapper.TodoMapper;
 import lombok.Cleanup;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +17,21 @@ import java.util.List;
 @Service
 public class TodoService {
 
-    @Autowired
-    private TodoDaoImpl dao = new TodoDaoImpl();
+/*    @Autowired
+    private TodoDaoImpl dao = new TodoDaoImpl();*/
+
+    @Autowired(required = false)
+    private TodoMapper todoMapper;
 
     public List<Todo> getList() throws Exception {
 
         log.info("TodoService getList() ...");
 
-        @Cleanup Connection conn = ConnectionProvider.getInstance().getConnection();
+//        @Cleanup Connection conn = ConnectionProvider.getInstance().getConnection();
 
-        List<Todo> list = dao.todoList(conn);
+        List<Todo> list = null;
+
+        list = todoMapper.todoList();
 
         log.info(list);
         return list;

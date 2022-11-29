@@ -33,7 +33,7 @@
 
     </tr>
 
-    <c:forEach var="todo" items="${todoList}" varStatus="stat">
+    <c:forEach var="todo" items="${todolist}" varStatus="stat">
 
       <tr>
 

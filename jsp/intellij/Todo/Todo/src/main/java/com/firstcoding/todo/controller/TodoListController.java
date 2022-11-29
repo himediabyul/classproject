@@ -63,12 +63,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TodoListController{
 
     @Autowired
-    private TodoService service = new TodoService();
+    private TodoService todoService;
 
     @RequestMapping("/todo/list")
     public String list(Model model) throws Exception {
 
-        model.addAttribute("todoList", service.getList());
+        model.addAttribute("todolist", todoService.getList());
 
         return "todo/list";
     }
