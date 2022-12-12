@@ -115,6 +115,10 @@
 
     addBtn.addEventListener('click', addlist)
 
+    editMemberClose.addEventListener ('click', (event) => {
+        
+    })
+
 })
  
 
