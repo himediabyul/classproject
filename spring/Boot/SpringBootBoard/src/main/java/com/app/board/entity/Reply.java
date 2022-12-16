@@ -3,6 +3,7 @@ package com.app.board.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,8 +30,8 @@ public class Reply {
     private String replyer;
 
     @Column
-    private String replyDate;
+    private LocalDate replyDate;
 
     @Column
-    private String updateDate;
+    private LocalDate updateDate;
 }
