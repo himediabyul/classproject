@@ -1,8 +1,9 @@
 package com.app.board.controller.board;
 
 import com.app.board.domain.ReplyDTO;
+import com.app.board.entity.Board;
 import com.app.board.entity.Reply;
-import com.app.board.service.*;
+import com.app.board.service.reply.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,26 +13,26 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Log4j2
 @RestController
 @RequestMapping("/reply")
+@Log4j2
 public class ReplyRestController {
 
+    @Autowired
+    private ReplyListService replyListService;
 
     @Autowired
-    private ReplyListService listService;
+    private ReplyInsertService replyInsertService;
 
     @Autowired
-    private ReplyInsertService insertService;
-
-    @Autowired
-    private ReplyReadService readService;
-
-    @Autowired
-    private ReplyEditService replyEditService;
+    private ReplyReadService replyReadService;
 
     @Autowired
     private ReplyDeleteService replyDeleteService;
+
+
+    @Autowired
+    private ReplyEditService replyEditService;
 
     // get  /reply/{bno} => list
     @GetMapping(value = "/{bno}",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,29 +40,31 @@ public class ReplyRestController {
             @PathVariable("bno") int bno
     ){
 
-        List<Reply> list = listService.selectAll(bno);
+        List<Reply> list = replyListService.selectAll(bno);
 
         return new ResponseEntity<>(list, HttpStatus.OK);
 
     }
 
-    // post /reply => reply 객체 전송     JSON 데이터를 받아서 DB insert
-    @PostMapping
-    public ResponseEntity<Reply> insertReply(@RequestBody ReplyDTO replyDTO){
 
-        log.info("insert 전 : " + replyDTO);
+
+    // post /reply => reply    JSON 데이터를 받아서 DB insert
+    @PostMapping
+    public ResponseEntity<Reply> insertReply(
+        @RequestBody ReplyDTO replyDTO
+    ){
+
+        log.info("insert 전 : "+replyDTO);
 
         // Service -> Mapper
-        Reply resultReply = insertService.insertReply(replyDTO);
-        // 입력된 row 의 rno 값을 구할 수 있다.
+        Reply resultReply = replyInsertService.insertReply(replyDTO);
 
-        log.info("insert 후 : " + resultReply); // rno 값이 갱신된 데이터
+        log.info("insert 후 : "+resultReply);
+        
 
-//        replyDTO.setReplyDate(LocalDate.now().toString());
-
-
-//        return new ResponseEntity<>(readService.selectByRno(replyDTO.getRno()), HttpStatus.OK);
+        //return new ResponseEntity<>(replyReadService.selectByRno(replyDTO.getRno()), HttpStatus.OK);
         return new ResponseEntity<>(resultReply, HttpStatus.OK);
+
     }
 
     // put  /reply/{rno} => reply
@@ -81,5 +84,9 @@ public class ReplyRestController {
     ){
         return new ResponseEntity<>(replyDeleteService.deleteByRno(rno), HttpStatus.OK);
     }
+
+
+
+
 
 }

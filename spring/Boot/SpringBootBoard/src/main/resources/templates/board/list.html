@@ -32,19 +32,17 @@
           <tr th:each="board : ${listPage.list}">
             <td th:text="${board.bno}">1</td>
             <td>
-              <a th:text="${board.title}" th:href="@{/board/view(bno=${board.bno}, p=${listPage.pageNum})}"/>
+              <a th:text="${board.title}" th:href="@{/board/view(bno=${board.bno},p=${listPage.pageNum})}"></a>
               <!--<span th:text="${board.replycnt}" class="badge bg-danger"></span>-->
             </td>
-            <td th:text="${board.writer}">테스트 작성</td>
+            <td th:text="${board.writer.username}">테스트 작성</td>
             <td th:text="${board.regdate}">2022-12-07</td>
           </tr>
         </tbody>
 
       </table>
 
-
-
-<!--      페이징 시작 -->
+      <!--페이징 시작-->
       <nav aria-label="">
         <ul class="pagination">
 
@@ -80,7 +78,7 @@
         </ul>
       </nav>
 
-<!--      글쓰기 버튼 -->
+      <!--글쓰기 버튼-->
       <div class="text-end">
         <a href="/board/write" class="btn btn-primary">글쓰기</a>
       </div>

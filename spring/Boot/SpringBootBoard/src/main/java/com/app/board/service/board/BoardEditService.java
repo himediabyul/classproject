@@ -1,6 +1,6 @@
-package com.app.board.service;
+package com.app.board.service.board;
 
-//import com.app.board.domain.BoardDTO;
+import com.app.board.domain.BoardDTO;
 import com.app.board.domain.BoardEditRequest;
 import com.app.board.entity.Board;
 import com.app.board.mapper.BoardMapper;
@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-//import java.sql.SQLException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -29,7 +29,6 @@ public class BoardEditService {
     public int edit(BoardEditRequest boardEditRequest){
 
         MultipartFile file = boardEditRequest.getFormFile();
-
 
         File saveDir = null;
         String newFileName = null;
@@ -67,13 +66,13 @@ public class BoardEditService {
 
         }
 
+        // BoardDTO boardDTO = boardEditRequest.toBoardDTO();
 
-        // Request -> Entity 로 변경
-//        BoardDTO boardDTO = boardEditRequest.toBoardDTO();
+        // Request -> Entity
         Board board = boardEditRequest.toBoardEntity();
         if(newFileName != null){
             board.setPhoto(newFileName);
-        } else{
+        } else {
             board.setPhoto(null);
         }
 
@@ -84,9 +83,12 @@ public class BoardEditService {
 
         try {
             // db update
-//            result = boardMapper.update(boardDTO);
+            //result = boardMapper.update(boardDTO);
+
+            // 수정 시간 설정
+            board.setUpdatedate(LocalDate.now());
+
             boardRepository.save(board);
-//            board.setUpdatedate(LocalDate.now());
 
             // 새로운 파일이 저장 되고 이전 파일이 존재한다면 ! -> 이전 파일을 삭제
             String oldFileName = boardEditRequest.getOldFile();

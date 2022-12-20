@@ -1,4 +1,4 @@
-package com.app.board.service;
+package com.app.board.service.reply;
 
 import com.app.board.domain.ReplyDTO;
 import com.app.board.entity.Reply;
@@ -21,12 +21,12 @@ public class ReplyEditService {
     public int updateReply(ReplyDTO replyDTO){
 
         Reply reply = replyDTO.toReplyEntity();
-
-        reply.setUpdateDate(LocalDate.now());
-        reply.setReplyDate(LocalDate.parse(replyDTO.getReplyDate()));
+        reply.setUpdatedate(LocalDate.now());
+        reply.setReplydate(LocalDate.parse(replyDTO.getReplydate()));
 
         return replyRepository.save(reply) != null ? 1 : 0;
-//        return replyMapper.updateReply(replyDTO);
+
+        //return replyMapper.updateReply(replyDTO);
     }
 
 }

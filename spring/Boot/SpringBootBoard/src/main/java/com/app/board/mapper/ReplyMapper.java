@@ -11,11 +11,12 @@ public interface ReplyMapper {
     @Select("select * from tbl_reply where bno=#{bno}")
     List<ReplyDTO> selectAll(int bno);
 
+
     @Select("select * from tbl_reply where rno=#{rno}")
     ReplyDTO selectByRno(int rno);
 
 
-    @Insert("insert into tbl_reply (bno, reply, replyer) values (#{bno}, #{reply}, #{replyer})")
+    @Insert("INSERT INTO tbl_reply (bno,reply,replyer) VALUES (#{bno}, #{reply}, #{replyer})")
     @Options(useGeneratedKeys = true, keyProperty = "rno", keyColumn = "rno")
     int insertReply(ReplyDTO replyDTO);
 
@@ -24,7 +25,6 @@ public interface ReplyMapper {
 
     @Update("update tbl_reply set bno=#{bno}, reply=#{reply}, replyer=#{replyer}, replydate=#{replydate}, updatedate=now() where rno=#{rno} ")
     int updateReply(ReplyDTO replyDTO);
-
 
 
 }

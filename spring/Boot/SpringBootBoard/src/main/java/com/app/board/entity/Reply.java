@@ -1,37 +1,42 @@
 package com.app.board.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "tbl_reply")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
-@Entity
-@Table(name = "tbl_reply")
+@ToString
 public class Reply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private int rno;
+    private Integer rno;
 
     @Column
-    private int bno;
+    private Integer bno;
 
     @Column
     private String reply;
 
-    @Column
-    private String replyer;
+    /*@Column
+    private String replyer;*/
+
+    @ManyToOne
+    @JoinColumn(name = "replyer")
+    private BoardMember replyer;
 
     @Column
-    private LocalDate replyDate;
+    private LocalDate replydate;
 
     @Column
-    private LocalDate updateDate;
+    private LocalDate updatedate;
+
 }

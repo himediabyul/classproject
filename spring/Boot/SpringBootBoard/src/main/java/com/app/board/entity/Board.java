@@ -1,18 +1,19 @@
 package com.app.board.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "tbl_board")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
 @ToString
-@Entity
-@Table(name = "tbl_board")
 public class Board {
 
     @Id
@@ -26,13 +27,17 @@ public class Board {
     @Column
     private String content;
 
-    @Column(updatable = false)
-    private String writer;
+    /*@Column(updatable = false)
+    private String writer;*/
+
+    @ManyToOne
+    @JoinColumn(name = "writer")
+    private BoardMember writer;
 
     @Column
     private String photo;
 
-    @Column(insertable = false, updatable = false) // 테이블에서 자동입력되기때문에 입력 및 업데이트 불가 처리
+    @Column(insertable = false, updatable = false)
     private LocalDate regdate;
 
     @Column(insertable = false)
