@@ -12,25 +12,30 @@ public class SampleController {
 
     @GetMapping("/all")
     public void all(){
-        log.info("all.........");
-
+        log.info("all .................");
     }
 
     @GetMapping("/sample")
     public void sample(){
-        log.info("sample.........");
+        log.info("sample ..............");
     }
 
 
     @GetMapping("/member")
     public void member(){
-        log.info("member.........");
+        log.info("member ..............");
     }
-
 
     @GetMapping("/admin")
     public void admin(){
-        log.info("admin.........");
+        log.info("admin ..............");
     }
+
+
+    @GetMapping("/login")
+    public void login(){
+
+    }
+
 
 }

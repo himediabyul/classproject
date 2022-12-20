@@ -20,39 +20,39 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     @Override
     public void onAuthenticationSuccess(
             HttpServletRequest request,
             HttpServletResponse response,
             Authentication authentication) throws IOException, ServletException {
 
-            log.info("successHandler...............");
+        log.info("successHandler ....................................");
 
-            AuthMemberDTO authMemberDTO = (AuthMemberDTO) authentication.getPrincipal();
+        AuthMemberDTO authMemberDTO = (AuthMemberDTO) authentication.getPrincipal();
 
-            String pw = request.getParameter("password");
+        String pw = request.getParameter("password");
 
-            log.info(">>>>>> pw "+pw);
+        log.info(" >>>>>>>>>>>>  pw " + pw);
 
-            boolean passResult = passwordEncoder.matches(pw, authMemberDTO.getPassword());
+        boolean passResult = passwordEncoder.matches(pw, authMemberDTO.getPassword());
 
-            if(passResult){
-                response.sendRedirect("/login?error");
-            }
+        if(passResult){
+            response.sendRedirect("/sample/login?error");
+        }
 
-            log.info(authMemberDTO.getAuthorities());
-            // ROLE_ADMIN ROLE_MEMBER
-            List<String> roleNames = new ArrayList<>();
-            for(GrantedAuthority authority : authMemberDTO.getAuthorities()){
-                // 권한의 이름을 String 리스트에 저장
-                roleNames.add(authority.getAuthority());
-            }
+        log.info(authMemberDTO.getAuthorities());
+        // ROLE_ADMIN ROLE_MEMBER
+        List<String> roleNames = new ArrayList<>();
+        for (GrantedAuthority authority : authMemberDTO.getAuthorities()){
+            // 권한의 이름을 String 리스트에 저장
+            roleNames.add(authority.getAuthority());
+        }
 
-            if(roleNames.contains("ROLE_ADMIN")){
-                response.sendRedirect("/sample/admin");
-            } else if(roleNames.contains("ROLE_USER")){
-                response.sendRedirect("/sample/member");
-            }
+        if (roleNames.contains("ROLE_ADMIN")){
+            response.sendRedirect("/sample/admin");
+        } else if(roleNames.contains("ROLE_USER")){
+            response.sendRedirect("/sample/member");
+        }
+
     }
 }

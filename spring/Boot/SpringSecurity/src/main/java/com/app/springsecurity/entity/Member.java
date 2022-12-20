@@ -15,7 +15,6 @@ import java.util.Set;
 public class Member {
 
     @Id
-    @Column
     private String email;
 
     @Column
@@ -28,10 +27,7 @@ public class Member {
     private Set<MemberRole> roleSet;
 
     public void addMemberRole(MemberRole role){
-
         roleSet.add(role);
-
-
     }
 
 }
