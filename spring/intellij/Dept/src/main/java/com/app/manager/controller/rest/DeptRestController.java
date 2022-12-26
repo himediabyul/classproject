@@ -92,6 +92,8 @@ public class DeptRestController {
         return new HttpEntity<String>("update", httpHeaders);
     }
 
+
+
     // delete/{no} -> 부서정보 하나를 삭제
     @DeleteMapping("/{no}")
     public ResponseEntity<String> deleteDept(@PathVariable("no") int deptno){

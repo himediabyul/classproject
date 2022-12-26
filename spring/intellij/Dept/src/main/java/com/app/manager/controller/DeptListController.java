@@ -14,6 +14,8 @@ public class DeptListController {
     @Autowired
     private DeptListService deptListService;
 
+    
+
     @RequestMapping("/dept/list")
     public String getDeptList(DeptSearchOption searchOption, Model model){
         log.info("dept list...");

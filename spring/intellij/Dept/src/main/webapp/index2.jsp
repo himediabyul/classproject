@@ -54,7 +54,7 @@
 
 </script>
 --%>
-
+<%--
 <script>
 
     const request = {
@@ -65,7 +65,7 @@
             return fetch(url, {
                 method : 'POST',
                 headers : {'content-Type' : 'application/json'},
-                body : JSON.stringify(payload)
+                body : JSON.stringify(payload)  // JSON으로 변환
             })
         },
         put(url, payload){
@@ -115,7 +115,25 @@
         })
 
 </script>
+--%>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+<script>
+
+    axios.get('/api/v1/depts/10')
+        .then(res => {console.log('res', res.data)
+        // 태그 캐스팅 -> 데이터 변경
+        })
+        .catch(err => console.log(err))
+
+    axios.post('/api/v1/depts', {
+        "deptno": 55,
+        "dname": "개발",
+        "loc": "판교"
+    })// 경로, 저장해야하는데이터{}
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+</script>
 </body>
 </html>
