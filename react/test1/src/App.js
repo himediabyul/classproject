@@ -14,6 +14,19 @@ import MailBox from './components/MailBox';
 import UserStatus from './components/UserStatus';
 import WarningBanner from './WarningBanner';
 import Mainpage from './components/Mainpage';
+import NumberList from './components/NumberList';
+import TeamPlayers from './components/TeamPlayers';
+import NameForm from './components/NameForm';
+import RequestForm from './components/RequestForm';
+import FruitSelect from './components/FruitSelect';
+import Reservation from './components/Reservation';
+import Signup from './components/Signup';
+import WelcomeMessage from './components/WelcomeMessage';
+import WelcomeDialog from './components/WelcomeDialog';
+import SignUpDialog from './components/SignUpDialog';
+import ProfileCard from './components/ProfileCard';
+import DarkOrWhite from './components/DarkOrWhite';
+import ProductList from './components/ProductList';
 
 
 /* let list = [{},{},{},{},{},{},{},{}]
@@ -22,7 +35,7 @@ import Mainpage from './components/Mainpage';
 
 function App() {
   return (
-    <Mainpage />
+    <ProductList />
   );
 }
 
