@@ -19,16 +19,21 @@ function WordContainer (props){
 
     // 단어 추가 함수
     const addWord = (word)=>{
+        
         // 배열에 단어를 추가하고 setWords
         // words.push(word)
+
         setWords([...words, word])  // => (['AAA','BBB','CCC'])
     }
 
     // 단어 삭제 함수
     const removeWord = (word) => {
+
         // 배열에서 매개변수로 받은 요소를 삭제
         // 배열.filter(true/false) => 새로운 배열 생성
+
         const filteredWords = words.filter(w=>w !== word)
+
         setWords([...filteredWords])
     }
 
