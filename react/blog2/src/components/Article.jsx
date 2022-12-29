@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Article ({title, date, imgUrl, content}) {
 
     return (
